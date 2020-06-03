@@ -16,6 +16,7 @@
 		AA1B05922486C61000B0EE35 /* PlantlantaApp_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1B05912486C61000B0EE35 /* PlantlantaApp_iOSTests.swift */; };
 		AA1B059D2486C61000B0EE35 /* PlantlantaApp_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1B059C2486C61000B0EE35 /* PlantlantaApp_iOSUITests.swift */; };
 		AA1B05AA2486C62F00B0EE35 /* PlantlantaApp in Frameworks */ = {isa = PBXBuildFile; productRef = AA1B05A92486C62F00B0EE35 /* PlantlantaApp */; };
+		AABC4E39248720E6001A47BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AABC4E38248720E6001A47BF /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		AA1B05982486C61000B0EE35 /* PlantlantaApp_iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlantlantaApp_iOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA1B059C2486C61000B0EE35 /* PlantlantaApp_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantlantaApp_iOSUITests.swift; sourceTree = "<group>"; };
 		AA1B059E2486C61000B0EE35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AABC4E38248720E6001A47BF /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				AA1B057E2486C60F00B0EE35 /* ContentView.swift */,
 				AA1B05802486C61000B0EE35 /* Assets.xcassets */,
 				AA1B05852486C61000B0EE35 /* LaunchScreen.storyboard */,
+				AABC4E38248720E6001A47BF /* Main.storyboard */,
 				AA1B05882486C61000B0EE35 /* Info.plist */,
 				AA1B05822486C61000B0EE35 /* Preview Content */,
 			);
@@ -255,6 +258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA1B05872486C61000B0EE35 /* LaunchScreen.storyboard in Resources */,
+				AABC4E39248720E6001A47BF /* Main.storyboard in Resources */,
 				AA1B05842486C61000B0EE35 /* Preview Assets.xcassets in Resources */,
 				AA1B05812486C61000B0EE35 /* Assets.xcassets in Resources */,
 			);
