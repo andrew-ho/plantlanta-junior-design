@@ -142,7 +142,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LMi-dF-IlK">
-                                <rect key="frame" x="150" y="766" width="114" height="60"/>
+                                <rect key="frame" x="150" y="764.5" width="114" height="60"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <state key="normal" title="Return"/>
                                 <connections>
@@ -150,7 +150,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Fr9-86-dHf">
-                                <rect key="frame" x="47" y="192" width="320" height="496.5"/>
+                                <rect key="frame" x="47" y="192" width="320" height="495"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hPX-cY-L1i">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="36"/>
@@ -190,9 +190,9 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="39W-5F-nTt">
-                                        <rect key="frame" x="0.0" y="451" width="320" height="45.5"/>
+                                        <rect key="frame" x="0.0" y="451" width="320" height="44"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                             </stackView>
@@ -246,7 +246,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="WZG-OZ-gSV">
-                                <rect key="frame" x="112" y="296" width="190" height="244.5"/>
+                                <rect key="frame" x="112" y="296" width="190" height="243"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sponsor Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cd6-2P-d30">
                                         <rect key="frame" x="0.0" y="0.0" width="190" height="36"/>
@@ -277,9 +277,9 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="psq-5N-3qK">
-                                        <rect key="frame" x="0.0" y="199" width="190" height="45.5"/>
+                                        <rect key="frame" x="0.0" y="199" width="190" height="44"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                             </stackView>
@@ -335,7 +335,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Lzj-hm-j2t">
-                                <rect key="frame" x="84" y="318" width="246" height="244.5"/>
+                                <rect key="frame" x="84" y="318" width="246" height="243"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Organization Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kwB-vG-gSk">
                                         <rect key="frame" x="0.0" y="0.0" width="246" height="36"/>
@@ -366,9 +366,9 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JnR-6w-bVz">
-                                        <rect key="frame" x="0.0" y="199" width="246" height="45.5"/>
+                                        <rect key="frame" x="0.0" y="199" width="246" height="44"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                             </stackView>
@@ -511,7 +511,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Czj-ZO-ajM">
                                         <rect key="frame" x="0.0" y="117.5" width="124" height="44.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                             </stackView>
@@ -576,8 +576,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="2ea-C0-qG4"/>
-        <segue reference="gUW-71-hJY"/>
-        <segue reference="o2U-if-Or4"/>
+        <segue reference="bHt-2b-Gr1"/>
+        <segue reference="ruA-w9-IhF"/>
+        <segue reference="c7f-Qw-cqe"/>
     </inferredMetricsTieBreakers>
 </document>
