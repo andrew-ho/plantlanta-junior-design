@@ -572,7 +572,7 @@
                                 <state key="normal" title="Log Out"/>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zwi-Ts-lX4">
-                                <rect key="frame" x="86.5" y="330" width="241" height="240"/>
+                                <rect key="frame" x="86.5" y="330" width="241" height="300"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KKz-BE-6Z9">
                                         <rect key="frame" x="0.0" y="0.0" width="241" height="60"/>
@@ -604,6 +604,14 @@
                                         <state key="normal" title="Edit Rewards"/>
                                         <connections>
                                             <segue destination="zZF-b5-OZQ" kind="show" id="Lrp-V5-eSh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cMu-Dj-O1X">
+                                        <rect key="frame" x="0.0" y="240" width="241" height="60"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <state key="normal" title="View Profile"/>
+                                        <connections>
+                                            <segue destination="5wv-e7-Jm2" kind="show" id="rbE-54-qnT"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1120,11 +1128,76 @@
             </objects>
             <point key="canvasLocation" x="-152" y="2199"/>
         </scene>
+        <!--Profile-->
+        <scene sceneID="HNd-eX-byH">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="5wv-e7-Jm2" userLabel="Profile" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vsT-e1-ZVA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plantlanta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iec-QC-DPE">
+                                <rect key="frame" x="122.5" y="88" width="169.5" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <color key="textColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ptj-Hi-qbW">
+                                <rect key="frame" x="150" y="737" width="114" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <state key="normal" title="Return"/>
+                                <connections>
+                                    <segue destination="1ih-M4-d5i" kind="show" id="MzY-OY-Fri"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6Bi-XH-gtK">
+                                <rect key="frame" x="52.5" y="330" width="309" height="240"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="URu-g4-6k2">
+                                        <rect key="frame" x="0.0" y="0.0" width="309" height="60"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <state key="normal" title="Change Name"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oa9-fV-cV7">
+                                        <rect key="frame" x="0.0" y="60" width="309" height="60"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <state key="normal" title="Change D.O.B."/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="idl-NK-rLD">
+                                        <rect key="frame" x="0.0" y="120" width="309" height="60"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <state key="normal" title="Change Email"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v5L-VC-jOD">
+                                        <rect key="frame" x="0.0" y="180" width="309" height="60"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <state key="normal" title="Change Password"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6Bi-XH-gtK" firstAttribute="top" secondItem="vsT-e1-ZVA" secondAttribute="top" constant="330" id="Bdm-pm-6K2"/>
+                            <constraint firstItem="Iec-QC-DPE" firstAttribute="centerX" secondItem="6Bi-XH-gtK" secondAttribute="centerX" id="X7V-bh-PpP"/>
+                            <constraint firstItem="6Bi-XH-gtK" firstAttribute="centerX" secondItem="ptj-Hi-qbW" secondAttribute="centerX" id="gQJ-68-4sl"/>
+                            <constraint firstItem="Iec-QC-DPE" firstAttribute="centerX" secondItem="vsT-e1-ZVA" secondAttribute="centerX" id="jB7-DC-sAw"/>
+                            <constraint firstItem="DbP-uS-ouk" firstAttribute="bottom" secondItem="ptj-Hi-qbW" secondAttribute="bottom" constant="65" id="sfL-1V-Jfj"/>
+                            <constraint firstItem="Iec-QC-DPE" firstAttribute="top" secondItem="DbP-uS-ouk" secondAttribute="top" constant="44" id="yVB-it-96U"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="DbP-uS-ouk"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="4Gh-Wm-hcL"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="udt-Hk-6PX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1420" y="755"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="QPb-kM-cSd"/>
-        <segue reference="HRI-eP-qKC"/>
-        <segue reference="BhV-rE-Iqn"/>
+        <segue reference="Dpu-up-gBC"/>
+        <segue reference="wrw-yz-YDg"/>
+        <segue reference="MzY-OY-Fri"/>
         <segue reference="bHt-2b-Gr1"/>
         <segue reference="ine-V2-c10"/>
         <segue reference="c7f-Qw-cqe"/>
