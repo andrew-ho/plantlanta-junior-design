@@ -9,6 +9,7 @@
 import UIKit
 class LoginViewController: ViewController {
     //Properties
+    var found = false
     @IBOutlet weak var EmailLabel: UILabel!
     
     @IBOutlet weak var EmailTextField: UITextField!
@@ -27,22 +28,14 @@ class LoginViewController: ViewController {
     
     @IBAction func EnterButton(_ sender: UIButton) {
         let currentAccount = Account()
-        accounts.append(currentAccount)
-        let alert = UIAlertController(title: EmailTextField.text, message: PasswordTextField.text, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-              switch action.style{
-              case .default:
-                    print("default")
-
-              case .cancel:
-                    print("cancel")
-
-              case .destructive:
-                    print("destructive")
-
-
-
-            }}))
-        /*self.present(alert, animated: true, completion: nil)*/
+        /*accounts.append(currentAccount)*/
+        
+        found = CheckAccount(email: currentAccount.email, password: currentAccount.password)
+        if (found == false) {
+            ShowAlert(Title: "Something went wrong", Message: "Username or password is wrong", ViewController: self)
+            write(text: "This si some text", to: "xxx.txt")
+            wow()
+        }
+        
     }
 }

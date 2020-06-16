@@ -131,7 +131,7 @@
         <!--Volunteer-->
         <scene sceneID="buW-rR-kC4">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="ICG-Hz-XpI" userLabel="Volunteer" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="ICG-Hz-XpI" userLabel="Volunteer" customClass="RegisterViewController" customModule="test_signin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ggg-vm-G1h">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -197,9 +197,8 @@
                                     </textField>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KD3-Md-dMq">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KD3-Md-dMq" userLabel="RegisterVolunteerButton">
                                 <rect key="frame" x="162" y="698" width="90" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <state key="normal" title="Enter"/>
                                 <connections>
@@ -212,6 +211,8 @@
                             <constraint firstItem="Fr9-86-dHf" firstAttribute="top" secondItem="9wy-YE-24T" secondAttribute="bottom" constant="56" id="1Kf-Vy-bLx"/>
                             <constraint firstItem="9wy-YE-24T" firstAttribute="centerX" secondItem="ggg-vm-G1h" secondAttribute="centerX" id="2g6-Xq-yGm"/>
                             <constraint firstItem="9wy-YE-24T" firstAttribute="centerX" secondItem="Fr9-86-dHf" secondAttribute="centerX" id="8a0-ZE-lNA"/>
+                            <constraint firstItem="KD3-Md-dMq" firstAttribute="centerX" secondItem="LMi-dF-IlK" secondAttribute="centerX" id="8gz-at-Pox"/>
+                            <constraint firstItem="LMi-dF-IlK" firstAttribute="top" secondItem="KD3-Md-dMq" secondAttribute="bottom" constant="6.5" id="CCY-No-9Ir"/>
                             <constraint firstItem="9wy-YE-24T" firstAttribute="top" secondItem="LDo-80-Jxh" secondAttribute="top" constant="44" id="Vtd-eT-EsF"/>
                             <constraint firstItem="LMi-dF-IlK" firstAttribute="top" secondItem="Fr9-86-dHf" secondAttribute="bottom" constant="77.5" id="j8q-9h-cOY"/>
                             <constraint firstItem="Fr9-86-dHf" firstAttribute="centerX" secondItem="LMi-dF-IlK" secondAttribute="centerX" id="lBz-cr-ndV"/>
@@ -219,6 +220,12 @@
                         <viewLayoutGuide key="safeArea" id="LDo-80-Jxh"/>
                     </view>
                     <navigationItem key="navigationItem" id="ZEW-e1-JAc"/>
+                    <connections>
+                        <outlet property="RegisterVolunteerButton" destination="KD3-Md-dMq" id="BEc-JD-2bt"/>
+                        <outlet property="volunteerEmail" destination="JCW-8U-BxK" id="nnG-SU-VVV"/>
+                        <outlet property="volunteerName" destination="lVD-AL-lSg" id="BrW-H8-jhf"/>
+                        <outlet property="volunteerPassword" destination="39W-5F-nTt" id="FCK-YU-65k"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HYb-ue-FxI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1008,7 +1015,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h7A-Sw-tpS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-833" y="1465"/>
+            <point key="canvasLocation" x="-833.33333333333337" y="1464.5089285714284"/>
         </scene>
         <!--IndividualShopItem-->
         <scene sceneID="Ygn-Jl-JqJ">
@@ -1199,7 +1206,7 @@
         <segue reference="wrw-yz-YDg"/>
         <segue reference="MzY-OY-Fri"/>
         <segue reference="bHt-2b-Gr1"/>
-        <segue reference="ine-V2-c10"/>
-        <segue reference="c7f-Qw-cqe"/>
+        <segue reference="ruA-w9-IhF"/>
+        <segue reference="Nj4-Rd-axM"/>
     </inferredMetricsTieBreakers>
 </document>
