@@ -131,7 +131,7 @@
         <!--Volunteer-->
         <scene sceneID="buW-rR-kC4">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="ICG-Hz-XpI" userLabel="Volunteer" customClass="RegisterViewController" customModule="test_signin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="ICG-Hz-XpI" userLabel="Volunteer" customClass="VolunteerViewController" customModule="test_signin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ggg-vm-G1h">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -202,6 +202,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <state key="normal" title="Enter"/>
                                 <connections>
+                                    <action selector="RegisterVolunteer:" destination="ICG-Hz-XpI" eventType="touchUpInside" id="Z63-3r-dum"/>
                                     <segue destination="ilW-jd-Z94" kind="show" id="bHt-2b-Gr1"/>
                                 </connections>
                             </button>
@@ -221,10 +222,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="ZEW-e1-JAc"/>
                     <connections>
-                        <outlet property="RegisterVolunteerButton" destination="KD3-Md-dMq" id="BEc-JD-2bt"/>
-                        <outlet property="volunteerEmail" destination="JCW-8U-BxK" id="nnG-SU-VVV"/>
-                        <outlet property="volunteerName" destination="lVD-AL-lSg" id="BrW-H8-jhf"/>
-                        <outlet property="volunteerPassword" destination="39W-5F-nTt" id="FCK-YU-65k"/>
+                        <outlet property="RegisterVolunteerButton" destination="KD3-Md-dMq" id="kSm-yA-8Ob"/>
+                        <outlet property="volunteerEmail" destination="JCW-8U-BxK" id="iTp-Gz-IXc"/>
+                        <outlet property="volunteerName" destination="lVD-AL-lSg" id="xYJ-Yt-1qX"/>
+                        <outlet property="volunteerPassword" destination="39W-5F-nTt" id="cMP-H8-NCp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HYb-ue-FxI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1203,7 +1204,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Dpu-up-gBC"/>
-        <segue reference="wrw-yz-YDg"/>
+        <segue reference="HRI-eP-qKC"/>
         <segue reference="MzY-OY-Fri"/>
         <segue reference="bHt-2b-Gr1"/>
         <segue reference="ruA-w9-IhF"/>

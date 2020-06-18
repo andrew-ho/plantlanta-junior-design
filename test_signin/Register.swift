@@ -6,7 +6,9 @@
 //  Copyright © 2020 huh. All rights reserved.
 //
 
-import Foundation
 func Register(name:String, email: String, password: String) {
     accounts.append(Account(email: email, password: password, name: name))
+    /*write(text: "Wow", to: "Jim.txt")*/
+    TryWriting(account: email)
+    
 }

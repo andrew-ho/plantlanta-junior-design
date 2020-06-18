@@ -27,14 +27,12 @@ class LoginViewController: ViewController {
     //Actions
     
     @IBAction func EnterButton(_ sender: UIButton) {
-        let currentAccount = Account()
-        /*accounts.append(currentAccount)*/
-        
-        found = CheckAccount(email: currentAccount.email, password: currentAccount.password)
+        /*let currentAccount = Account()
+        accounts.append(currentAccount)
+        */
+        found = CheckAccount(email: EmailTextField.text!, password: PasswordTextField.text!)
         if (found == false) {
             ShowAlert(Title: "Something went wrong", Message: "Username or password is wrong", ViewController: self)
-            write(text: "This si some text", to: "xxx.txt")
-            wow()
         }
         
     }
