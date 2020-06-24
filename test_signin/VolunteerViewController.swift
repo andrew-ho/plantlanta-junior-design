@@ -23,7 +23,7 @@ class VolunteerViewController: ViewController {
     
     
     @IBAction func RegisterVolunteer(_ sender: UIButton) {
-        Register(name: volunteerName.text!, email: volunteerEmail.text!, password: volunteerPassword.text!)
+        Register(name: volunteerName.text!, email: volunteerEmail.text!, password: volunteerPassword.text!, accountType: "Volunteer")
     }
     
     
