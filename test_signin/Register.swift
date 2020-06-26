@@ -6,8 +6,9 @@
 //  Copyright © 2020 huh. All rights reserved.
 //
 
-func Register(name:String, email: String, password: String, accountType: String) {
-    accounts.append(Account(email: email, password: password, name: name, accountType: accountType))
+//method to register users
+func Register(name:String, email: String, password: String, accountType: String, userEvents: [Event]) {
+    accounts.append(Account(email: email, password: password, name: name, accountType: accountType, userEvents: userEvents))
     /*write(text: "Wow", to: "Jim.txt")*/
     TryWriting(account: email)
     

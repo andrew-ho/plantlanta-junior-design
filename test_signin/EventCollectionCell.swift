@@ -8,11 +8,12 @@
 
 import UIKit
 
+//Don't worry about this
 class EventCollectionCell: UICollectionViewCell {
     
     @IBOutlet weak var EventName: UILabel!
     
-    func configureEventName(with eventName: String) {
-        EventName.text = eventName
+    func configureEventName(with eventName: Event) {
+        EventName.text = eventName.eventName
     }
 }

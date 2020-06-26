@@ -9,6 +9,10 @@
 import UIKit
 
 class OrganizationViewController: ViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+    }
     
     @IBOutlet weak var OrganizationName: UITextField!
     @IBOutlet weak var EmailField: UITextField!
@@ -16,8 +20,10 @@ class OrganizationViewController: ViewController {
     
     @IBOutlet weak var OrganizationPassword: UITextField!
     
+    var userEvents = [Event]()
     
+    //Registers user as an organization
     @IBAction func RegisterOrganizationButton(_ sender: UIButton) {
-        Register(name: OrganizationName.text!, email: EmailField.text!, password: OrganizationPassword.text!, accountType: "Organization")
+        Register(name: OrganizationName.text!, email: EmailField.text!, password: OrganizationPassword.text!, accountType: "Organization", userEvents: userEvents)
     }
 }

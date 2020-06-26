@@ -10,6 +10,10 @@ import Foundation
 import UIKit
 class VolunteerViewController: ViewController {
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+    }
     @IBOutlet weak var RegisterVolunteerButton: UIButton!
     
     
@@ -20,10 +24,11 @@ class VolunteerViewController: ViewController {
     
     @IBOutlet weak var volunteerPassword: UITextField!
     
+    var userEvents = [Event]()
     
-    
+    //Registers user as volunteer
     @IBAction func RegisterVolunteer(_ sender: UIButton) {
-        Register(name: volunteerName.text!, email: volunteerEmail.text!, password: volunteerPassword.text!, accountType: "Volunteer")
+        Register(name: volunteerName.text!, email: volunteerEmail.text!, password: volunteerPassword.text!, accountType: "Volunteer", userEvents: userEvents)
     }
     
     

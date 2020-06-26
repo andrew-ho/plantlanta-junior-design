@@ -15,20 +15,45 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
         
         EventCollection.delegate = self
         EventCollection.dataSource = self
+        
+        
+        //Receives notification of a successful event sign up
+        NotificationCenter.default.addObserver(self, selector: #selector(ShowEventAlert), name: Notification.Name("EventSignInSuccessAlert"), object: nil)
     }
     
-    let eventNames: [String] = ["Event 1", "Event 2", "Event 3", "Event 4", "Event 5"]
+    //Shows an alert that the user has sucessfully signed up
+    @objc func ShowEventAlert() {
+        ShowAlert(Title: "Success!", Message: "You have succesfully signed up for the event", ViewController: self, ButtonMessage: "Ok")
+    }
+    
+    //An array containing events
+    let Events: [Event] = [Event(eventName: "Event1", eventID: 0, eventDescription: "Event 1"), Event(eventName: "Event2", eventID: 1, eventDescription: "Event 2"), Event(eventName: "Event3", eventID: 2, eventDescription: "Event 3"), Event(eventName: "Event 4", eventID: 3, eventDescription: "Event 4"), Event(eventName: "Event 5", eventID: 4, eventDescription: "Event 5")]
     
     @IBOutlet weak var EventCollection: UICollectionView!
     
+    var index = 0
+    
+    //Returns the number of items in the events array
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return eventNames.count
+        return Events.count
     }
     
+    //Changes the label in the collectionview to match the event
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = EventCollection.dequeueReusableCell(withReuseIdentifier: "EventCell", for: indexPath) as! EventCollectionCell
         cell.backgroundColor = UIColor.red
-        cell.configureEventName(with: eventNames[indexPath.row])
+        cell.configureEventName(with: Events[indexPath.row])
         return cell
     }
+    
+    
+    //Sends a notification on which event was selected to the individual events page
+    func collectionView(_ collectionView: UICollectionView,
+    didSelectItemAt indexPath: IndexPath) {
+        currentEvent = Events[indexPath.row]
+        index = indexPath.row
+        NotificationCenter.default.post(name: Notification.Name("UpdateLabel"), object: nil)
+    }
+    
 }
+

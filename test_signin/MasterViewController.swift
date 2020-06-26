@@ -16,32 +16,67 @@ class Main {
 }
 var mainInstance = Main(name:"My Global Class")
 
+//Account class, this holds the user information
 class Account {
     var name: String
     var email:String
     var password:String
     var accountType:String
+    var userEvents: [Event]
     init(email:String, password:String, name:String,
-         accountType:String) {
+         accountType:String,
+         userEvents: [Event]) {
         self.name = name
         self.email = email
         self.password = password
         self.accountType = accountType
+        self.userEvents = userEvents
     }
     
     init() {
         self.name = "Joe Schmoe"
         self.email = "email"
         self.password = "password"
-        self.accountType = "Volunteer"
+        self.accountType = "None"
+        self.userEvents = [Event]()
     }
 }
 
-var accounts = [Account]()
+//Event class, holds event information
+class Event {
+    var eventName : String
+    var eventID : Double
+    var eventDescription: String
+    init (eventName: String,
+          eventID: Double, eventDescription: String) {
+        self.eventName = eventName
+        self.eventID = eventID
+        self.eventDescription = eventDescription
+        
+    }
+    
+    init () {
+        self.eventName = ""
+        self.eventID = -1
+        self.eventDescription = ""
+    }
+}
 
-func ShowAlert(Title: String, Message: String, ViewController: UIViewController) {
+//I don't know what the hell to put in here
+class Prizes {
+    
+}
+
+//array that holds all user info
+var accounts = [Account]()
+//the current user
+var currentUser = Account()
+//the current event
+var currentEvent = Event()
+//Call this method to show an alert
+func ShowAlert(Title: String, Message: String, ViewController: UIViewController, ButtonMessage: String) {
     let alert = UIAlertController(title: Title, message: Message, preferredStyle: .alert)
-    alert.addAction(UIAlertAction(title: "Try again", style: .default, handler: nil))
+    alert.addAction(UIAlertAction(title: ButtonMessage, style: .default, handler: nil))
     ViewController.present(alert, animated: true, completion: nil)
     print("the var found is ")
     

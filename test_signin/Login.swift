@@ -8,25 +8,19 @@
 
 import Foundation
 
-func CheckAccount(email: String, password: String) -> Bool {
+//Check if account exists in the accounts array in masterviewcontroller
+func CheckAccount(email: String, password: String) -> Account {
     for account in accounts {
         if (email == account.email) {
             if (password == account.password) {
-                return true
+                return account
             }
         }
     }
-    return false
+    return Account()
 }
 
-/*func write(text: String, to fileNamed: String, folder: String = "SavedFiles") {
-    guard let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first else { return }
-    guard let writePath = NSURL(fileURLWithPath: path).appendingPathComponent(folder) else { return }
-    try? FileManager.default.createDirectory(atPath: writePath.path, withIntermediateDirectories: true)
-    let file = writePath.appendingPathComponent(fileNamed + ".txt")
-    try? text.write(to: file, atomically: false, encoding: String.Encoding.utf8)
-}
-    */
+//saves to a text file on the mac
 func TryWriting(account: String) {
     let filename = getDocumentsDirectory().appendingPathComponent("output.txt")
 
@@ -44,6 +38,8 @@ func TryWriting(account: String) {
     }
     catch {/* error handling here */}
     }
+
+//prints the document directory in where the text file is located on the mac
 func getDocumentsDirectory() -> URL {
     let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
     return paths[0]

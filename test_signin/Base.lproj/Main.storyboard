@@ -657,7 +657,7 @@
         <!--Events-->
         <scene sceneID="TnX-kY-pSK">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="a3J-O5-G61" userLabel="Events" customClass="EventViewController" customModule="test_signin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Events" modalPresentationStyle="fullScreen" id="a3J-O5-G61" userLabel="Events" customClass="EventViewController" customModule="test_signin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oLz-3f-8GV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -786,10 +786,10 @@
             </objects>
             <point key="canvasLocation" x="769.56521739130437" y="1464.5089285714284"/>
         </scene>
-        <!--View Controller-->
+        <!--Individual Event Controller-->
         <scene sceneID="XVM-jH-bcP">
             <objects>
-                <viewController id="naT-tw-zoU" sceneMemberID="viewController">
+                <viewController id="naT-tw-zoU" customClass="IndividualEventController" customModule="test_signin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AfF-YZ-HpH">
                         <rect key="frame" x="0.0" y="0.0" width="374" height="585"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -833,6 +833,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Sign Up"/>
+                                <connections>
+                                    <action selector="EventSignUpButton:" destination="naT-tw-zoU" eventType="touchUpInside" id="Wty-a7-O2y"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -856,6 +859,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fWT-X4-EHi"/>
                     </view>
+                    <connections>
+                        <outlet property="EventNameLabel" destination="MJI-Oz-Lqh" id="3RL-Xp-sHQ"/>
+                        <outlet property="eventText" destination="caM-RQ-Rhv" id="Abf-mC-Cpn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9QR-0e-Hk1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1131,12 +1138,11 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="SKy-85-DRS"/>
-        <segue reference="Dpu-up-gBC"/>
-        <segue reference="HRI-eP-qKC"/>
+        <segue reference="QPb-kM-cSd"/>
+        <segue reference="wrw-yz-YDg"/>
         <segue reference="BhV-rE-Iqn"/>
         <segue reference="2ea-C0-qG4"/>
         <segue reference="gUW-71-hJY"/>
-        <segue reference="c7f-Qw-cqe"/>
+        <segue reference="o2U-if-Or4"/>
     </inferredMetricsTieBreakers>
 </document>

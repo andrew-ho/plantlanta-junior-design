@@ -9,6 +9,10 @@
 import UIKit
 
 class SponsorViewController: ViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+    }
     
     @IBOutlet weak var SponsorName: UITextField!
     
@@ -17,9 +21,10 @@ class SponsorViewController: ViewController {
     
     @IBOutlet weak var SponsorPassword: UITextField!
     
-    
+    var userEvents = [Event]()
+    //Registers User as a sponsor
     @IBAction func RegisterSponsorButton(_ sender: UIButton) {
-        Register(name: SponsorName.text!, email: SponsorEmail.text!, password: SponsorPassword.text!, accountType: "Sponsor")
+        Register(name: SponsorName.text!, email: SponsorEmail.text!, password: SponsorPassword.text!, accountType: "Sponsor", userEvents: userEvents)
     }
     
 }
