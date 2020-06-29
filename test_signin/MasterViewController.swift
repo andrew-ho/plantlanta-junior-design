@@ -82,3 +82,11 @@ func ShowAlert(Title: String, Message: String, ViewController: UIViewController,
     
 }
 
+extension String {
+   var containsSpecialCharacter: Bool {
+      let regex = ".*[^A-Za-z0-9].*"
+      let testString = NSPredicate(format:"SELF MATCHES %@", regex)
+      return testString.evaluate(with: self)
+   }
+}
+

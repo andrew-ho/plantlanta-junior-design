@@ -28,9 +28,18 @@ class VolunteerViewController: ViewController {
     
     //Registers user as volunteer
     @IBAction func RegisterVolunteer(_ sender: UIButton) {
-        Register(name: volunteerName.text!, email: volunteerEmail.text!, password: volunteerPassword.text!, accountType: "Volunteer", userEvents: userEvents)
+        if (volunteerPassword.text!.count < 8) {
+            ShowAlert(Title: "Error", Message: "Password length has to be 8 or more", ViewController: self, ButtonMessage: "Try again")
+        }
+        else if (!volunteerPassword.text!.containsSpecialCharacter) {
+            
+        }
+        else {
+            Register(name: volunteerName.text!, email: volunteerEmail.text!, password: volunteerPassword.text!, accountType: "Volunteer", userEvents: userEvents)
+        }
     }
-    
-    
-    
 }
+    
+    
+    
+
