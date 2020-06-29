@@ -595,10 +595,10 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zwi-Ts-lX4">
-                                <rect key="frame" x="86.5" y="330" width="241" height="300"/>
+                                <rect key="frame" x="103" y="330" width="208" height="300"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KKz-BE-6Z9">
-                                        <rect key="frame" x="0.0" y="0.0" width="241" height="60"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="208" height="60"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                         <state key="normal" title="View Events"/>
                                         <connections>
@@ -606,7 +606,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bnx-oh-xal">
-                                        <rect key="frame" x="0.0" y="60" width="241" height="60"/>
+                                        <rect key="frame" x="0.0" y="60" width="208" height="60"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                         <state key="normal" title="Edit Events"/>
                                         <connections>
@@ -614,23 +614,23 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Mb-kF-qrY">
-                                        <rect key="frame" x="0.0" y="120" width="241" height="60"/>
+                                        <rect key="frame" x="0.0" y="120" width="208" height="60"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                        <state key="normal" title="View Rewards"/>
+                                        <state key="normal" title="View Prizes"/>
                                         <connections>
                                             <segue destination="zZF-b5-OZQ" kind="show" id="Dpu-up-gBC"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dT5-cM-evy">
-                                        <rect key="frame" x="0.0" y="180" width="241" height="60"/>
+                                        <rect key="frame" x="0.0" y="180" width="208" height="60"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                        <state key="normal" title="Edit Rewards"/>
+                                        <state key="normal" title="Edit Prizes"/>
                                         <connections>
                                             <segue destination="zZF-b5-OZQ" kind="show" id="Lrp-V5-eSh"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cMu-Dj-O1X">
-                                        <rect key="frame" x="0.0" y="240" width="241" height="60"/>
+                                        <rect key="frame" x="0.0" y="240" width="208" height="60"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                         <state key="normal" title="View Profile"/>
                                         <connections>
@@ -1144,12 +1144,11 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="hr6-oJ-vz3"/>
         <segue reference="Dpu-up-gBC"/>
         <segue reference="wrw-yz-YDg"/>
-        <segue reference="BhV-rE-Iqn"/>
+        <segue reference="MzY-OY-Fri"/>
         <segue reference="2ea-C0-qG4"/>
         <segue reference="gUW-71-hJY"/>
-        <segue reference="Nj4-Rd-axM"/>
+        <segue reference="o4m-I7-HD8"/>
     </inferredMetricsTieBreakers>
 </document>
