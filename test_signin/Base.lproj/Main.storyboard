@@ -590,6 +590,9 @@
                                 <rect key="frame" x="138.5" y="737" width="137" height="60"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <state key="normal" title="Log Out"/>
+                                <connections>
+                                    <segue destination="u0u-Po-IzN" kind="show" id="o4m-I7-HD8"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zwi-Ts-lX4">
                                 <rect key="frame" x="86.5" y="330" width="241" height="300"/>
@@ -1141,11 +1144,12 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="hr6-oJ-vz3"/>
         <segue reference="Dpu-up-gBC"/>
         <segue reference="wrw-yz-YDg"/>
         <segue reference="BhV-rE-Iqn"/>
         <segue reference="2ea-C0-qG4"/>
         <segue reference="gUW-71-hJY"/>
-        <segue reference="o2U-if-Or4"/>
+        <segue reference="Nj4-Rd-axM"/>
     </inferredMetricsTieBreakers>
 </document>
