@@ -25,6 +25,7 @@
 		6AB568EE24A5A01600F1F34D /* IndividualEventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB568ED24A5A01600F1F34D /* IndividualEventController.swift */; };
 		6AFA67942495BD4E00161623 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFA67932495BD4E00161623 /* LoginViewController.swift */; };
 		6AFA67962495CCD900161623 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFA67952495CCD900161623 /* MasterViewController.swift */; };
+		CC8BE18124AA570100EA27DA /* PrizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8BE18024AA570100EA27DA /* PrizeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		6AB568ED24A5A01600F1F34D /* IndividualEventController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualEventController.swift; sourceTree = "<group>"; };
 		6AFA67932495BD4E00161623 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6AFA67952495CCD900161623 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		CC8BE18024AA570100EA27DA /* PrizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrizeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 				6AA742D224A3123900C63C9D /* EventViewController.swift */,
 				6AA742D424A3143700C63C9D /* EventCollectionCell.swift */,
 				6AB568ED24A5A01600F1F34D /* IndividualEventController.swift */,
+				CC8BE18024AA570100EA27DA /* PrizeViewController.swift */,
 			);
 			path = test_signin;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				6A9836D324987789003C003F /* Register.swift in Sources */,
 				6A28A25A2487377200C509BA /* AppDelegate.swift in Sources */,
 				6A28A25C2487377200C509BA /* SceneDelegate.swift in Sources */,
+				CC8BE18124AA570100EA27DA /* PrizeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

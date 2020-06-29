@@ -17,3 +17,7 @@ class EventCollectionCell: UICollectionViewCell {
         EventName.text = eventName.eventName
     }
 }
+class PrizeCollectionCell:
+UICollectionViewCell {
+    
+}

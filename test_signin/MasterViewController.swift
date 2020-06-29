@@ -64,7 +64,25 @@ class Event {
 
 //I don't know what the hell to put in here
 class Prizes {
-    
+    var prizeName : String
+    var prizeID : Double
+    var prizeDescription: String
+    var prizePoints: Double
+    init (prizeName: String,
+          prizeID: Double, prizeDescription: String, prizePoints: Double) {
+            self.prizeName = prizeName
+            self.prizeID = prizeID
+            self.prizeDescription = prizeDescription
+            self.prizePoints = prizePoints
+           
+       }
+       
+       init () {
+            self.prizeName = ""
+            self.prizeID = -1
+            self.prizeDescription = ""
+            self.prizePoints = -1
+       }
 }
 
 //array that holds all user info
@@ -73,6 +91,7 @@ var accounts = [Account]()
 var currentUser = Account()
 //the current event
 var currentEvent = Event()
+var currentPrize = Prizes()
 //Call this method to show an alert
 func ShowAlert(Title: String, Message: String, ViewController: UIViewController, ButtonMessage: String) {
     let alert = UIAlertController(title: Title, message: Message, preferredStyle: .alert)

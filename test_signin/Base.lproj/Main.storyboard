@@ -871,7 +871,7 @@
         <!--Shop-->
         <scene sceneID="J0p-Bq-ip1">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="zZF-b5-OZQ" userLabel="Shop" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="zZF-b5-OZQ" userLabel="Shop" customClass="PrizeViewController" customModule="test_signin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="93m-B3-IYo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -906,7 +906,7 @@
                                     <viewLayoutGuide key="frameLayoutGuide" id="hxT-MQ-vYp"/>
                                 </scrollView>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="p8h-Yb-hOI">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PrizeView" id="p8h-Yb-hOI" customClass="PrizeCollectionCell" customModule="test_signin" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="vaA-AS-6MW">
@@ -943,6 +943,9 @@
                         <viewLayoutGuide key="safeArea" id="Mt1-Ic-a5r"/>
                     </view>
                     <navigationItem key="navigationItem" id="cjh-dm-5YV"/>
+                    <connections>
+                        <outlet property="PrizeFunction" destination="gZc-BX-Bx9" id="ZjN-vK-1Bo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h7A-Sw-tpS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1138,7 +1141,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="QPb-kM-cSd"/>
+        <segue reference="Dpu-up-gBC"/>
         <segue reference="wrw-yz-YDg"/>
         <segue reference="BhV-rE-Iqn"/>
         <segue reference="2ea-C0-qG4"/>
