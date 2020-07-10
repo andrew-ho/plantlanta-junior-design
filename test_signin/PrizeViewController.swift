@@ -25,15 +25,16 @@ override func viewDidLoad() {
     @objc func ShowPrizeAlert() {
         ShowAlert(Title: "Success!", Message: "You have succesfully signed up for the event", ViewController: self, ButtonMessage: "Ok")
     }
-    let Prize: [Prizes] = [Prizes(prizeName: "Prize 1", prizeID: 0, prizeDescription: "Prize 1", prizePoints: 0), Prizes(prizeName: "Prize1", prizeID: 0, prizeDescription: "Prize 1", prizePoints: 0)]
+    let Prize: [Prizes] = [Prizes(prizeName: "Prize 1", prizeID: 0, prizeDescription: "Prize 1", prizePoints: 0, prizeImage: "prize1"), Prizes(prizeName: "Prize2", prizeID: 1, prizeDescription: "Prize 2", prizePoints: 0, prizeImage: "prize2")]
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
            return Prize.count
        }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = PrizeFunction.dequeueReusableCell(withReuseIdentifier: "PrizeView", for: indexPath) as! UICollectionViewCell
-        cell.backgroundColor = UIColor.red
-//        cell.configureEventName(with: Prize [indexPath.row])
+        let cell = PrizeFunction.dequeueReusableCell(withReuseIdentifier: "PrizeView", for: indexPath) as! PrizeCollectionCell
+        cell.ConfigurePrizeName(with: Prize [indexPath.row])
+        
+        cell.ConfigurePrizeImage(with: Prize[indexPath.row])
         return cell
     }
     var index = 0

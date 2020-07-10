@@ -13,11 +13,27 @@ class EventCollectionCell: UICollectionViewCell {
     
     @IBOutlet weak var EventName: UILabel!
     
+    @IBOutlet weak var EventImage: UIImageView!
+    
+    
     func configureEventName(with eventName: Event) {
         EventName.text = eventName.eventName
     }
-}
-class PrizeCollectionCell:
-UICollectionViewCell {
     
+    func configureEventImage(with eventImage: Event) {
+        EventImage.image = UIImage(named: eventImage.eventImage)
+    }
+}
+class PrizeCollectionCell: UICollectionViewCell {
+    @IBOutlet weak var PrizeName: UILabel!
+    
+    @IBOutlet weak var PrizeImage: UIImageView!
+    
+    func ConfigurePrizeName(with prizeName: Prizes) {
+        PrizeName.text = prizeName.prizeName
+    }
+    
+    func ConfigurePrizeImage(with prizeImage: Prizes) {
+        PrizeImage.image = UIImage(named: prizeImage.prizeImage)
+    }
 }

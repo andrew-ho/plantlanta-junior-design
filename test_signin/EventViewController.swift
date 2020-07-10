@@ -27,7 +27,7 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
     }
     
     //An array containing events
-    let Events: [Event] = [Event(eventName: "Event1", eventID: 0, eventDescription: "Event 1"), Event(eventName: "Event2", eventID: 1, eventDescription: "Event 2"), Event(eventName: "Event3", eventID: 2, eventDescription: "Event 3"), Event(eventName: "Event 4", eventID: 3, eventDescription: "Event 4"), Event(eventName: "Event 5", eventID: 4, eventDescription: "Event 5")]
+    let Events: [Event] = [Event(eventName: "Event1", eventID: 0, eventDescription: "Event 1", eventImage: "volunteer1"), Event(eventName: "Event2", eventID: 1, eventDescription: "Event 2", eventImage: "volunteer2"), Event(eventName: "Event3", eventID: 2, eventDescription: "Event 3", eventImage: "volunteer3"), Event(eventName: "Event 4", eventID: 3, eventDescription: "Event 4", eventImage: "volunteer4"), Event(eventName: "Event 5", eventID: 4, eventDescription: "Event 5", eventImage: "volunteer5")]
     
     @IBOutlet weak var EventCollection: UICollectionView!
     
@@ -41,8 +41,8 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
     //Changes the label in the collectionview to match the event
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = EventCollection.dequeueReusableCell(withReuseIdentifier: "EventCell", for: indexPath) as! EventCollectionCell
-        cell.backgroundColor = UIColor.red
         cell.configureEventName(with: Events[indexPath.row])
+        cell.configureEventImage(with: Events[indexPath.row])
         return cell
     }
     

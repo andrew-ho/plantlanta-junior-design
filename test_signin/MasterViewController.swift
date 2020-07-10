@@ -23,14 +23,18 @@ class Account {
     var password:String
     var accountType:String
     var userEvents: [Event]
+    var userPrizes: [Prizes]
+    var userPoints: Double
     init(email:String, password:String, name:String,
          accountType:String,
-         userEvents: [Event]) {
+         userEvents: [Event], userPrizes: [Prizes], userPoints: Double) {
         self.name = name
         self.email = email
         self.password = password
         self.accountType = accountType
         self.userEvents = userEvents
+        self.userPrizes = userPrizes
+        self.userPoints = 0
     }
     
     init() {
@@ -39,6 +43,8 @@ class Account {
         self.password = "password"
         self.accountType = "None"
         self.userEvents = [Event]()
+        self.userPrizes = [Prizes]()
+        self.userPoints = 0
     }
 }
 
@@ -47,18 +53,20 @@ class Event {
     var eventName : String
     var eventID : Double
     var eventDescription: String
+    var eventImage: String
     init (eventName: String,
-          eventID: Double, eventDescription: String) {
+          eventID: Double, eventDescription: String, eventImage: String) {
         self.eventName = eventName
         self.eventID = eventID
         self.eventDescription = eventDescription
-        
+        self.eventImage = eventImage
     }
     
     init () {
         self.eventName = ""
         self.eventID = -1
         self.eventDescription = ""
+        self.eventImage = ""
     }
 }
 
@@ -68,12 +76,14 @@ class Prizes {
     var prizeID : Double
     var prizeDescription: String
     var prizePoints: Double
+    var prizeImage: String
     init (prizeName: String,
-          prizeID: Double, prizeDescription: String, prizePoints: Double) {
+          prizeID: Double, prizeDescription: String, prizePoints: Double, prizeImage: String) {
             self.prizeName = prizeName
             self.prizeID = prizeID
             self.prizeDescription = prizeDescription
             self.prizePoints = prizePoints
+            self.prizeImage = prizeImage
            
        }
        
@@ -82,6 +92,7 @@ class Prizes {
             self.prizeID = -1
             self.prizeDescription = ""
             self.prizePoints = -1
+            self.prizeImage = ""
        }
 }
 

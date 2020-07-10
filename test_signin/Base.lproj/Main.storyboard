@@ -575,7 +575,7 @@
         <!--MainPage-->
         <scene sceneID="O2y-HY-lhh">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="1ih-M4-d5i" userLabel="MainPage" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="1ih-M4-d5i" userLabel="MainPage" customClass="MainPageController" customModule="test_signin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cho-8c-rR9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -633,9 +633,6 @@
                                         <rect key="frame" x="0.0" y="240" width="208" height="60"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                         <state key="normal" title="View Profile"/>
-                                        <connections>
-                                            <segue destination="5wv-e7-Jm2" kind="show" id="rbE-54-qnT"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -652,6 +649,13 @@
                         <viewLayoutGuide key="safeArea" id="VZ7-xD-5xN"/>
                     </view>
                     <navigationItem key="navigationItem" id="jqg-rI-Knz"/>
+                    <connections>
+                        <outlet property="EditEventsButton" destination="bnx-oh-xal" id="TxZ-xg-Wba"/>
+                        <outlet property="EditPrizesButton" destination="dT5-cM-evy" id="ciT-L5-5JX"/>
+                        <outlet property="ViewEventsButton" destination="KKz-BE-6Z9" id="F8S-zL-Jd0"/>
+                        <outlet property="ViewPrizesButton" destination="8Mb-kF-qrY" id="A9e-IW-ubN"/>
+                        <outlet property="ViewProfileButton" destination="cMu-Dj-O1X" id="kcM-ri-pOY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gJl-FE-JrN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -683,25 +687,29 @@
                                 <rect key="frame" x="20" y="144" width="374" height="585"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SXv-VJ-Klh">
-                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="itemSize" width="153" height="146"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="EventCell" id="nIw-Nk-oxE" customClass="EventCollectionCell" customModule="test_signin" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="42" height="128.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="153" height="146"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="goL-HF-Nro">
-                                            <rect key="frame" x="0.0" y="0.0" width="42" height="128.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="153" height="146"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k04-BD-1Qp">
-                                                    <rect key="frame" x="0.0" y="54" width="42" height="20.5"/>
+                                                    <rect key="frame" x="0.0" y="54" width="153" height="38"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t01-5d-2fz">
+                                                    <rect key="frame" x="0.0" y="0.0" width="153" height="146"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="k04-BD-1Qp" firstAttribute="centerY" secondItem="goL-HF-Nro" secondAttribute="centerY" id="EhJ-7q-TyX"/>
@@ -710,7 +718,9 @@
                                                 <constraint firstItem="k04-BD-1Qp" firstAttribute="leading" secondItem="goL-HF-Nro" secondAttribute="leading" id="fVo-9Q-pp4"/>
                                             </constraints>
                                         </collectionViewCellContentView>
+                                        <size key="customSize" width="153" height="146"/>
                                         <connections>
+                                            <outlet property="EventImage" destination="t01-5d-2fz" id="lHe-id-ubx"/>
                                             <outlet property="EventName" destination="k04-BD-1Qp" id="486-Jx-edt"/>
                                             <segue destination="k6a-cL-Ivc" kind="show" id="SKy-85-DRS"/>
                                         </connections>
@@ -863,6 +873,7 @@
                         <viewLayoutGuide key="safeArea" id="fWT-X4-EHi"/>
                     </view>
                     <connections>
+                        <outlet property="EventImage" destination="jVC-wJ-eo5" id="GQl-7m-mcC"/>
                         <outlet property="EventNameLabel" destination="MJI-Oz-Lqh" id="3RL-Xp-sHQ"/>
                         <outlet property="eventText" destination="caM-RQ-Rhv" id="Abf-mC-Cpn"/>
                     </connections>
@@ -874,7 +885,7 @@
         <!--Shop-->
         <scene sceneID="J0p-Bq-ip1">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="zZF-b5-OZQ" userLabel="Shop" customClass="PrizeViewController" customModule="test_signin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Shop" modalPresentationStyle="fullScreen" id="zZF-b5-OZQ" userLabel="Shop" customClass="PrizeViewController" customModule="test_signin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="93m-B3-IYo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -910,13 +921,33 @@
                                 </scrollView>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PrizeView" id="p8h-Yb-hOI" customClass="PrizeCollectionCell" customModule="test_signin" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="78" height="129"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="vaA-AS-6MW">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="78" height="129"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iJu-ip-Muq">
+                                                    <rect key="frame" x="18" y="54" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TOT-2B-Q0V">
+                                                    <rect key="frame" x="0.0" y="0.0" width="78" height="121"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="iJu-ip-Muq" firstAttribute="leading" secondItem="vaA-AS-6MW" secondAttribute="leading" constant="18" id="Opr-6G-QaE"/>
+                                                <constraint firstItem="iJu-ip-Muq" firstAttribute="centerY" secondItem="vaA-AS-6MW" secondAttribute="centerY" id="iTK-h9-IfE"/>
+                                                <constraint firstItem="iJu-ip-Muq" firstAttribute="top" secondItem="vaA-AS-6MW" secondAttribute="top" constant="54" id="y1c-xw-ms2"/>
+                                                <constraint firstItem="iJu-ip-Muq" firstAttribute="centerX" secondItem="vaA-AS-6MW" secondAttribute="centerX" id="ydA-3U-FYb"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
+                                            <outlet property="PrizeImage" destination="TOT-2B-Q0V" id="FzT-35-yeO"/>
+                                            <outlet property="PrizeName" destination="iJu-ip-Muq" id="CKm-Rf-4PC"/>
                                             <segue destination="J5G-qj-2fL" kind="show" id="bad-H6-BJl"/>
                                         </connections>
                                     </collectionViewCell>
@@ -1011,10 +1042,10 @@
             </objects>
             <point key="canvasLocation" x="-833" y="2200"/>
         </scene>
-        <!--View Controller-->
+        <!--Individual Prize Controller-->
         <scene sceneID="mZh-Hd-JKW">
             <objects>
-                <viewController id="IO9-Xy-uyA" sceneMemberID="viewController">
+                <viewController id="IO9-Xy-uyA" customClass="IndividualPrizeController" customModule="test_signin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3F7-hh-gM0">
                         <rect key="frame" x="0.0" y="0.0" width="374" height="585"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1052,6 +1083,9 @@
                                 <rect key="frame" x="123" y="252" width="131" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Redeem Points"/>
+                                <connections>
+                                    <action selector="RedeemPrize:" destination="IO9-Xy-uyA" eventType="touchUpInside" id="AFS-Dt-8uC"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -1072,6 +1106,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FjW-Px-HEN"/>
                     </view>
+                    <connections>
+                        <outlet property="PrizeImage" destination="gpS-0I-Kr1" id="Yeg-S6-M6D"/>
+                        <outlet property="PrizeName" destination="12i-en-zeC" id="wW3-pM-3BW"/>
+                        <outlet property="PrizeText" destination="IJt-9T-5Xm" id="uq9-Vl-zRm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kz8-GS-i8W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1144,9 +1183,11 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Dpu-up-gBC"/>
-        <segue reference="wrw-yz-YDg"/>
-        <segue reference="MzY-OY-Fri"/>
+        <segue reference="hr6-oJ-vz3"/>
+        <segue reference="SKy-85-DRS"/>
+        <segue reference="Lrp-V5-eSh"/>
+        <segue reference="HRI-eP-qKC"/>
+        <segue reference="BhV-rE-Iqn"/>
         <segue reference="2ea-C0-qG4"/>
         <segue reference="gUW-71-hJY"/>
         <segue reference="o4m-I7-HD8"/>

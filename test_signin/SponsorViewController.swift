@@ -22,6 +22,8 @@ class SponsorViewController: ViewController {
     @IBOutlet weak var SponsorPassword: UITextField!
     
     var userEvents = [Event]()
+    
+    var userPrizes = [Prizes]()
     //Registers User as a sponsor
     @IBAction func RegisterSponsorButton(_ sender: UIButton) {
         if (SponsorPassword.text!.count < 8) {
@@ -31,7 +33,7 @@ class SponsorViewController: ViewController {
             ShowAlert(Title: "Error", Message: "Password must contain at least one special character", ViewController: self, ButtonMessage: "Try again")
         }
         else {
-            Register(name: SponsorName.text!, email: SponsorEmail.text!, password: SponsorPassword.text!, accountType: "Sponsor", userEvents: userEvents)
+            Register(name: SponsorName.text!, email: SponsorEmail.text!, password: SponsorPassword.text!, accountType: "Sponsor", userEvents: userEvents, userPrizes: userPrizes, userPoints: 0)
         }
     }
     

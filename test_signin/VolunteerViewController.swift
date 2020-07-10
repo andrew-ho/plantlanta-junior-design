@@ -25,7 +25,7 @@ class VolunteerViewController: ViewController {
     @IBOutlet weak var volunteerPassword: UITextField!
     
     var userEvents = [Event]()
-    
+    var userPrizes = [Prizes]()
     //Registers user as volunteer
     @IBAction func RegisterVolunteer(_ sender: UIButton) {
         if (volunteerPassword.text!.count < 8) {
@@ -35,7 +35,7 @@ class VolunteerViewController: ViewController {
             
         }
         else {
-            Register(name: volunteerName.text!, email: volunteerEmail.text!, password: volunteerPassword.text!, accountType: "Volunteer", userEvents: userEvents)
+            Register(name: volunteerName.text!, email: volunteerEmail.text!, password: volunteerPassword.text!, accountType: "Volunteer", userEvents: userEvents, userPrizes: userPrizes, userPoints: 0)
         }
     }
 }

@@ -21,7 +21,7 @@ class OrganizationViewController: ViewController {
     @IBOutlet weak var OrganizationPassword: UITextField!
     
     var userEvents = [Event]()
-    
+    var userPrizes = [Prizes]()
     //Registers user as an organization
     @IBAction func RegisterOrganizationButton(_ sender: UIButton) {
         if (OrganizationPassword.text!.count < 8) {
@@ -31,7 +31,7 @@ class OrganizationViewController: ViewController {
             ShowAlert(Title: "Error", Message: "Password must contain at least one special character", ViewController: self, ButtonMessage: "Try again")
         }
         else {
-            Register(name: OrganizationName.text!, email: EmailField.text!, password: OrganizationPassword.text!, accountType: "Organization", userEvents: userEvents)
+            Register(name: OrganizationName.text!, email: EmailField.text!, password: OrganizationPassword.text!, accountType: "Organization", userEvents: userEvents, userPrizes: userPrizes, userPoints: 0)
         }
     }
 

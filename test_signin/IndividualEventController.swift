@@ -15,12 +15,15 @@ class IndividualEventController: ViewController {
     
     @IBOutlet weak var eventText: UITextView!
     
+    @IBOutlet weak var EventImage: UIImageView!
+    
+    
     var event: Event = Event()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+    
         //Receives notification if an event was selected
         NotificationCenter.default.addObserver(self, selector: #selector(ChangeLabel), name: Notification.Name("UpdateLabel"), object: nil)
     }
@@ -29,6 +32,7 @@ class IndividualEventController: ViewController {
     @objc func ChangeLabel() {
         EventNameLabel.text = currentEvent.eventName
         eventText.text = currentEvent.eventDescription
+        EventImage.image = UIImage(named: currentEvent.eventImage)
     }
     
     
