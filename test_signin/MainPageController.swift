@@ -24,9 +24,5 @@ class MainPageController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if (currentUser.accountType == "Volunteer") {
-            EditEventsButton.isHidden = true
-            EditPrizesButton.isHidden = true
-        }
     }
 }
