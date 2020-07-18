@@ -367,7 +367,7 @@
             <objects>
                 <viewController id="rgA-Tb-HFj" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VFL-XH-JNs">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Plantlanta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W6p-Ao-fBP">
@@ -441,6 +441,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="wQr-Ch-F55"/>
                     </view>
+                    <navigationItem key="navigationItem" id="5nt-4w-4wf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uLF-57-gTG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -951,6 +952,9 @@
                                         <rect key="frame" x="0.0" y="240" width="208" height="60"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                         <state key="normal" title="View Profile"/>
+                                        <connections>
+                                            <segue destination="rgA-Tb-HFj" kind="show" id="JPJ-Bp-goC"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -977,7 +981,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gJl-FE-JrN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-91" y="755"/>
+            <point key="canvasLocation" x="-91.304347826086968" y="754.6875"/>
         </scene>
         <!--Events-->
         <scene sceneID="TnX-kY-pSK">
@@ -1914,6 +1918,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="JPJ-Bp-goC"/>
         <segue reference="Lrp-V5-eSh"/>
         <segue reference="wrw-yz-YDg"/>
         <segue reference="XLC-7B-cn3"/>
