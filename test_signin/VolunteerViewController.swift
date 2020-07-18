@@ -57,7 +57,7 @@ class VolunteerViewController: ViewController {
                 //print(r)
                 //try JSONSerialization.save(jsonObject: dic, toFilename: "results.txt")
                 
-                try JSONSerialization.save(jsonObject: newData, toFilename: "users2.txt")
+                try JSONSerialization.save(jsonObject: newData, toFilename: "users4.txt")
             }
             catch {
                 print("something went wrong")

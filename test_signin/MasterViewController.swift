@@ -62,7 +62,7 @@ class Account: Codable {
     }
     
     func convertUser() -> [String: Any] {
-        let dic: [String: Any] = ["name": self.name, "email":self.email, "password":self.password, "accountType":self.accountType, "userEvents":self.userEvents, "userPrizes":self.userPrizes, "userPoints":self.userPoints]
+        let dic: [String: Any] = ["name": self.name, "email":self.email, "password":self.password, "accountType":self.accountType, "userEvents": ConvertEventArrToDic(arr: self.userEvents), "userPrizes": ConvertPrizeArrToDic(arr: self.userPrizes), "userPoints":self.userPoints]
         return dic
     }
 }
@@ -102,8 +102,58 @@ struct Event: Codable {
         self.time = ""
         self.eventPoints = 0
     }
+    
+    func convertToDic() -> [String: Any] {
+        let dic: [String: Any] = ["eventName": self.eventName, "eventID": self.eventID, "eventDescription": self.eventDescription, "eventImage": self.eventImage, "publisher": self.publisher, "time": self.time, "eventPoints": self.eventPoints]
+        return dic
+    }
 }
 
+func ConvertEventArrToDic(arr: [Event]) -> [[String: Any]] {
+    var eventArr = [[String: Any]]()
+    for event in arr {
+        eventArr.append(event.convertToDic())
+    }
+    return eventArr
+}
+
+func ConvertEventDicToArray(dic: [[String: Any]]) -> [Event] {
+    var eventArray: [Event] = []
+    for stuff in dic {
+        var event = Event()
+        event.eventDescription = stuff["eventDescription"] as! String
+        event.eventID = stuff["eventID"] as! Double
+        event.eventImage = stuff["eventImage"] as! String
+        event.eventName = stuff["eventName"] as! String
+        event.eventPoints = stuff["eventPoints"] as! Double
+        event.publisher = stuff["publisher"] as! String
+        eventArray.append(event)
+    }
+    return eventArray
+}
+
+func ConvertPrizeArrToDic(arr: [Prizes]) -> [[String: Any]] {
+    var prizeArr = [[String: Any]]()
+    for prize in arr {
+        prizeArr.append(prize.convertToDic())
+    }
+    return prizeArr
+}
+
+func ConvertPrizeDicToArray(dic: [[String: Any]]) -> [Prizes] {
+    var prizeArr = [Prizes]()
+    for stuff in dic {
+        var prize = Prizes()
+        prize.prizeDescription = stuff["prizeDescription"] as! String
+        prize.prizeID = stuff["prizeID"] as! Double
+        prize.prizeImage = stuff["prizeImage"] as! String
+        prize.prizeName = stuff["prizeName"] as! String
+        prize.prizePoints = stuff["prizePoints"] as! Double
+        prize.publisher = stuff["publisher"] as! String
+        prizeArr.append(prize)
+    }
+    return prizeArr
+}
 
 //I don't know what the hell to put in here
 struct Prizes: Codable {
@@ -132,6 +182,10 @@ struct Prizes: Codable {
             self.prizeImage = ""
             self.publisher = "NoOne"
        }
+    func convertToDic() -> [String: Any] {
+        let dic: [String: Any] = ["prizeName": self.prizeName, "prizeID": self.prizeID, "prizeDescription": self.prizeDescription, "prizePoints": self.prizePoints, "prizeImage": self.prizeImage, "publisher": self.publisher]
+        return dic
+    }
 }
 //array that holds all user info
 var accounts = [Account]()
@@ -238,4 +292,16 @@ extension Account: Equatable {
     }
 }
 
+func convertIntoJSONString(arrayObject: [Any]) -> String? {
 
+        do {
+            let jsonData: Data = try JSONSerialization.data(withJSONObject: arrayObject, options: [])
+            if  let jsonString = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue) {
+                return jsonString as String
+            }
+            
+        } catch let error as NSError {
+            print("Array convertIntoJSON - \(error.description)")
+        }
+        return nil
+    }

@@ -12,9 +12,10 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
         do {
-            yolo = try JSONSerialization.loadJSON(withFilename: "users2.txt") as! [[String: Any]]
+            yolo = try JSONSerialization.loadJSON(withFilename: "users4.txt") as! [[String: Any]]
         }
         catch {
             print("something went wrong")
@@ -23,7 +24,7 @@ class ViewController: UIViewController {
         for account in accounts {
             print(account.userEvents)
         }
-    }
+    
 }
 
 func GetAccounts() -> [Account] {
@@ -35,9 +36,24 @@ func GetAccounts() -> [Account] {
         account.password = stuff["password"] as! String
         account.accountType = stuff["accountType"] as! String
         account.userPoints = stuff["userPoints"] as! Double
-        account.userEvents = stuff["userEvents"] as! [Event]
-        account.userPrizes = stuff["userPrizes"] as! [Prizes]
+        //account.userEvents = stuff["userEvents"] as! [Event]
+        account.userEvents = ConvertEventDicToArray(dic: stuff["userEvents"] as! [[String: Any]])
+        //account.userPrizes = stuff["userPrizes"] as! [Prizes]
+        account.userPrizes = ConvertPrizeDicToArray(dic: stuff["userPrizes"] as! [[String: Any]])
         newAccounts.append(account)
     }
     return newAccounts
+}
+
+func testJson() {
+    print("come on, do math")
+    for stuff in yolo {
+        print(stuff["UserEvents"])
+        print(stuff["name"]!)
+        }
+    }
+    
+    
+    
+    
 }

@@ -32,15 +32,21 @@ func GetEvents(email: String) -> [Event]? {
 func InsertEvent(email: String, event: Event) {
     for user in accounts {
         if (user.email == email) {
+            print("user before appending")
+            print(JSONSerialization.isValidJSONObject(user.convertUser()))
             user.userEvents.append(event)
+            print("user after appending")
+            print(JSONSerialization.isValidJSONObject(user.convertUser()))
         }
     }
     var newData = [[String: Any]]()
+    
     for account in accounts {
         newData.append(account.convertUser())
     }
+    print(JSONSerialization.isValidJSONObject(newData))
     do {
-        try JSONSerialization.save(jsonObject: newData, toFilename: "users2.txt")
+        try JSONSerialization.save(jsonObject: newData, toFilename: "users4.txt")
     } catch {
         print("inserting events did not work")
     }
@@ -57,7 +63,7 @@ func InsertPrize(email: String, prize: Prizes) {
         newData.append(account.convertUser())
     }
     do {
-        try JSONSerialization.save(jsonObject: newData, toFilename: "users2.txt")
+        try JSONSerialization.save(jsonObject: newData, toFilename: "users4.txt")
     } catch {
         print("inserting prizes did not work")
     }
