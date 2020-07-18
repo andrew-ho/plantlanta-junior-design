@@ -43,15 +43,21 @@ class VolunteerViewController: ViewController {
             do {
                 
                 //data["Users"]?.append(dic)
+                accounts.append(newAccount)
                 
-                yolo.append(dic)
+                var newData = [[String: Any]]()
+                
+                for account in accounts {
+                    newData.append(account.convertUser())
+                }
                 
                 //data["Users"]?.append(newAccount.convertUser())
                 //var r = accJSON as! [String: [String: Any]]
                 //(r["Users"]? as AnyObject).append(dic)
                 //print(r)
                 //try JSONSerialization.save(jsonObject: dic, toFilename: "results.txt")
-                try JSONSerialization.save(jsonObject: yolo, toFilename: "users2.txt")
+                
+                try JSONSerialization.save(jsonObject: newData, toFilename: "users2.txt")
             }
             catch {
                 print("something went wrong")

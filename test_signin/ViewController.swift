@@ -14,49 +14,15 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         do {
-            //data = try JSONSerialization.loadJSON(withFilename: "users.txt") as! [String: [[String: Any]]]
             yolo = try JSONSerialization.loadJSON(withFilename: "users2.txt") as! [[String: Any]]
         }
         catch {
             print("something went wrong")
         }
-        /*var ev = [Event]()
-        ev.append(Event(eventName: "ev1", eventID: 0, eventDescription: "boo", eventImage: "ilk1"))
-        yolo[0]["userEvents"]! = ev
-        let pop = yolo[0]["userEvents"]! as! NSArray
-        print("pop")
-        let yur = pop[0] as! Event
-        print(yur.eventDescription)
-        print(yolo[0]["userEvents"]!)
-        print(yolo)
-        print(type(of: yolo[0]["userEvents"]! ))*/
-        
-        
-        //data["Users"]?.append(Account().convUserToDic())
-        //CheckIfUserExists()
-        /*print(data)
-        print("data")
-        print(data["Users"]!)*/
-        
-        /*print(type(of: data["Users"]![1]["Users"]!))
-        let q = data["Users"]![1]["Users"]! as! NSDictionary
-        print(q["email"]!)
-        print(type(of: q))
-        print(type(of: data))
-        print(type(of: data["Users"]))
-        print(type(of: data["Users"]?[0]))
-        print(type(of: data["Users"]?[0]["Users"]))
-        
-        let acc = Account()
-        yolo.append(acc.convertUser())
-        print(JSONSerialization.isValidJSONObject(yolo))
-        print(yolo[0]["name"]!)*/
-
-        
-        //print(yolo[0]["email"]!)
-        //print(yolo[0]["userEvents"]! as! [Event])
-        //print(yolo)
         accounts = GetAccounts()
+        for account in accounts {
+            print(account.userEvents)
+        }
     }
 }
 

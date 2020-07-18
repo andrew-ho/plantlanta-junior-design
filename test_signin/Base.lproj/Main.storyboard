@@ -1133,10 +1133,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+<<<<<<< Updated upstream
                             <datePicker contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="2wQ-ld-yQP">
                                 <rect key="frame" x="27" y="253" width="320" height="162"/>
                             </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e49-PY-911">
+=======
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e49-PY-911">
+>>>>>>> Stashed changes
                                 <rect key="frame" x="152" y="423" width="70" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="8iX-vY-uaQ"/>
@@ -1147,19 +1151,19 @@
                                     <action selector="EventSignUpButton:" destination="naT-tw-zoU" eventType="touchUpInside" id="Wty-a7-O2y"/>
                                 </connections>
                             </button>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="NU0-QJ-OcV">
+                                <rect key="frame" x="109" y="242" width="156" height="162"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </datePicker>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="2wQ-ld-yQP" firstAttribute="top" secondItem="Vdn-i1-ns9" secondAttribute="bottom" constant="8" symbolic="YES" id="Aie-Gz-x2L"/>
-                            <constraint firstItem="Vdn-i1-ns9" firstAttribute="centerX" secondItem="2wQ-ld-yQP" secondAttribute="centerX" id="Ecr-aM-oc4"/>
                             <constraint firstItem="Vdn-i1-ns9" firstAttribute="centerX" secondItem="MJI-Oz-Lqh" secondAttribute="centerX" id="QVc-wI-QaX"/>
                             <constraint firstItem="fWT-X4-EHi" firstAttribute="bottom" secondItem="e49-PY-911" secondAttribute="bottom" constant="126" id="Qc7-qQ-VfL"/>
                             <constraint firstItem="MJI-Oz-Lqh" firstAttribute="top" secondItem="AfF-YZ-HpH" secondAttribute="topMargin" id="S98-De-Z2w"/>
                             <constraint firstItem="MJI-Oz-Lqh" firstAttribute="centerX" secondItem="AfF-YZ-HpH" secondAttribute="centerX" id="cdj-uM-i5r"/>
                             <constraint firstItem="caM-RQ-Rhv" firstAttribute="leading" secondItem="AfF-YZ-HpH" secondAttribute="leadingMargin" id="deQ-Zu-soD"/>
-                            <constraint firstItem="e49-PY-911" firstAttribute="top" secondItem="2wQ-ld-yQP" secondAttribute="bottom" constant="8" symbolic="YES" id="fXP-rt-7zn"/>
                             <constraint firstItem="Vdn-i1-ns9" firstAttribute="top" secondItem="jVC-wJ-eo5" secondAttribute="bottom" constant="8" symbolic="YES" id="iic-Uj-66Y"/>
-                            <constraint firstItem="e49-PY-911" firstAttribute="top" secondItem="2wQ-ld-yQP" secondAttribute="bottom" constant="8" id="lK4-OY-3qX"/>
                             <constraint firstItem="jVC-wJ-eo5" firstAttribute="top" secondItem="MJI-Oz-Lqh" secondAttribute="bottom" constant="8" id="lcU-hU-JaE"/>
                             <constraint firstItem="jVC-wJ-eo5" firstAttribute="trailing" secondItem="AfF-YZ-HpH" secondAttribute="trailingMargin" id="pFT-GA-3Bg"/>
                             <constraint firstItem="Vdn-i1-ns9" firstAttribute="centerX" secondItem="e49-PY-911" secondAttribute="centerX" id="pZJ-Nz-JXM"/>
@@ -1172,6 +1176,7 @@
                     <connections>
                         <outlet property="EventImage" destination="jVC-wJ-eo5" id="GQl-7m-mcC"/>
                         <outlet property="EventNameLabel" destination="MJI-Oz-Lqh" id="3RL-Xp-sHQ"/>
+                        <outlet property="datePicker" destination="NU0-QJ-OcV" id="n4u-U0-jii"/>
                         <outlet property="eventText" destination="caM-RQ-Rhv" id="Abf-mC-Cpn"/>
                     </connections>
                 </viewController>

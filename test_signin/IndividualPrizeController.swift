@@ -38,7 +38,8 @@ class IndividualPrizeController: ViewController {
         }
         else if (currentUser.userPoints >= currentPrize.prizePoints) {
             //adds prize to user
-            currentUser.userPrizes.append(currentPrize)
+            //currentUser.userPrizes.append(currentPrize)
+            
             
             //Switch back to prizes
             let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)

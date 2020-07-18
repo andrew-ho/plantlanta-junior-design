@@ -78,12 +78,19 @@ struct Event: Codable {
     var eventID : Double
     var eventDescription: String
     var eventImage: String
+    var publisher: String
+    var time: String
+    var eventPoints: Double
+    
     init (eventName: String,
-          eventID: Double, eventDescription: String, eventImage: String) {
+          eventID: Double, eventDescription: String, eventImage: String, publisher: String, time: String, eventPoints: Double) {
         self.eventName = eventName
         self.eventID = eventID
         self.eventDescription = eventDescription
         self.eventImage = eventImage
+        self.publisher = publisher
+        self.time = time
+        self.eventPoints = eventPoints
     }
     
     init () {
@@ -91,6 +98,9 @@ struct Event: Codable {
         self.eventID = -1
         self.eventDescription = ""
         self.eventImage = ""
+        self.publisher = "NoOne"
+        self.time = ""
+        self.eventPoints = 0
     }
 }
 
@@ -102,13 +112,15 @@ struct Prizes: Codable {
     var prizeDescription: String
     var prizePoints: Double
     var prizeImage: String
+    var publisher: String
     init (prizeName: String,
-          prizeID: Double, prizeDescription: String, prizePoints: Double, prizeImage: String) {
+          prizeID: Double, prizeDescription: String, prizePoints: Double, prizeImage: String, publisher: String) {
             self.prizeName = prizeName
             self.prizeID = prizeID
             self.prizeDescription = prizeDescription
             self.prizePoints = prizePoints
             self.prizeImage = prizeImage
+            self.publisher = publisher
            
        }
        
@@ -118,6 +130,7 @@ struct Prizes: Codable {
             self.prizeDescription = ""
             self.prizePoints = -1
             self.prizeImage = ""
+            self.publisher = "NoOne"
        }
 }
 //array that holds all user info

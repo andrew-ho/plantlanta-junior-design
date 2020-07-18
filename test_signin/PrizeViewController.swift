@@ -25,7 +25,7 @@ override func viewDidLoad() {
     @objc func ShowPrizeAlert() {
         ShowAlert(Title: "Success!", Message: "You have succesfully signed up for the event", ViewController: self, ButtonMessage: "Ok")
     }
-    let Prize: [Prizes] = [Prizes(prizeName: "Prize 1", prizeID: 0, prizeDescription: "Prize 1", prizePoints: 0, prizeImage: "prize1"), Prizes(prizeName: "Prize2", prizeID: 1, prizeDescription: "Prize 2", prizePoints: 0, prizeImage: "prize2")]
+    let Prize: [Prizes] = [Prizes(prizeName: "Prize 1", prizeID: 0, prizeDescription: "Prize 1", prizePoints: 0, prizeImage: "prize1", publisher: "publisher 1"), Prizes(prizeName: "Prize2", prizeID: 1, prizeDescription: "Prize 2", prizePoints: 0, prizeImage: "prize2", publisher: "publisher 2")]
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
            return Prize.count

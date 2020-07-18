@@ -123,33 +123,11 @@ func loadAccounts() {
 
 //Check if account exists in the accounts array in masterviewcontroller
 func CheckAccount(email: String, password: String) -> Account {
-    /*if (data.count != 0) {
-        let users = data["Users"]!
-        for user in users {
-            for userData in user {
-                let h = userData.value as! [String: Any]
-                if (h["email"] as! String == email) {
-                    if (h["password"] as! String == password) {
-                        
-                        let newAccount = Account(email: h["email"] as! String, password: h["password"] as! String, name: h["name"] as! String, accountType: h["accountType"] as! String, userEvents: h["userEvents"] as! [Event], userPrizes: h["userPrizes"] as! [Prizes], userPoints: h["userPoints"] as! Double)
-                        return newAccount
-                    }
-                    else {
-                        return Account()
-                    }
-                }
-        
-            }
-        }
-        
-    }*/
     
     let user = GetUser(email: email)
     
     if (user != nil) {
-        if (user?["password"] as! String == password) {
-            return ConvertToAccount(User: user!)
-        }
+        return user!
     }
     return Account()
 }

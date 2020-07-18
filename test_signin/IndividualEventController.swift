@@ -17,15 +17,29 @@ class IndividualEventController: ViewController {
     
     @IBOutlet weak var EventImage: UIImageView!
     
+    @IBOutlet weak var datePicker: UIDatePicker!
     
     var event: Event = Event()
-
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-    
+        datePicker.addTarget(self, action: #selector(datePickerChanged(sender:)), for: .valueChanged)
         //Receives notification if an event was selected
         NotificationCenter.default.addObserver(self, selector: #selector(ChangeLabel), name: Notification.Name("UpdateLabel"), object: nil)
+    }
+    
+    @objc func datePickerChanged(sender: UIDatePicker) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .full
+        dateFormatter.timeStyle = .full
+        let strDate = dateFormatter.string(from: sender.date)
+        print(strDate)
     }
     
     //Changes the label so that the label changes to the current event
@@ -38,7 +52,13 @@ class IndividualEventController: ViewController {
     
     //Signs the user to the event
     @IBAction func EventSignUpButton(_ sender: Any) {
-        currentUser.userEvents.append(currentEvent)
+        //currentUser.userEvents.append(currentEvent)
+        let formatter = DateFormatter()
+        formatter.dateStyle = .full
+        formatter.timeStyle = .full
+        let dateString = formatter.string(from: datePicker.date)
+        currentEvent.time = dateString
+        InsertEvent(email: currentUser.email, event: currentEvent)
         
         //Change the storyboard programmatically
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)

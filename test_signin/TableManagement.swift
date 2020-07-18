@@ -8,53 +8,59 @@
 
 import Foundation
 
-func GetPrizePoints(email:String) -> Double {
+func GetPrizePoints(email:String) -> Double? {
     let user = GetUser(email: email)
-    return user?["userPoints"] as! Double
+    return user?.userPoints
 }
 
-func GetUser(email: String) -> [String: Any]? {
-    /*let users = data["Users"]!
-    for user in users {
-        for userData in user {
-            let h = userData.value as! [String: Any]
-            if (h["email"] as! String == email) {
-                return h
-            }
-        }
-    }*/
-    
-    for user in yolo {
-        if (user["email"] as! String == email) {
+func GetUser(email: String) -> Account? {
+    for user in accounts {
+        if (user.email == email) {
             return user
         }
     }
+    
+    
     return nil
 }
 
-func GetUserIndex(email: String) -> Int {
-    var index = 0
-    while (index < yolo.count) {
-        if (yolo[index]["email"] as! String == email) {
-            return index
-        }
-        else {
-            index += 1
-        }
-    }
-    return -1
-}
-
-func GetEvents(email: String) -> [Event] {
+func GetEvents(email: String) -> [Event]? {
     let user = GetUser(email: email)
-    return user?["userEvents"] as! [Event]
+    return user?.userEvents
 }
 
 func InsertEvent(email: String, event: Event) {
-    currentUser.userEvents.append(event)
-    yolo.remove(at: GetUserIndex(email: email))
-    yolo.append(currentUser.convertUser())
-    print(currentUser)
+    for user in accounts {
+        if (user.email == email) {
+            user.userEvents.append(event)
+        }
+    }
+    var newData = [[String: Any]]()
+    for account in accounts {
+        newData.append(account.convertUser())
+    }
+    do {
+        try JSONSerialization.save(jsonObject: newData, toFilename: "users2.txt")
+    } catch {
+        print("inserting events did not work")
+    }
+}
+
+func InsertPrize(email: String, prize: Prizes) {
+    for user in accounts {
+        if (user.email == email) {
+            user.userPrizes.append(prize)
+        }
+    }
+    var newData = [[String: Any]]()
+    for account in accounts {
+        newData.append(account.convertUser())
+    }
+    do {
+        try JSONSerialization.save(jsonObject: newData, toFilename: "users2.txt")
+    } catch {
+        print("inserting prizes did not work")
+    }
 }
 
 func ConvertToAccount(User: [String: Any]) -> Account {
