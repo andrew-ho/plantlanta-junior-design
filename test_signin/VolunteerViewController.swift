@@ -13,6 +13,7 @@ class VolunteerViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+
     }
     @IBOutlet weak var RegisterVolunteerButton: UIButton!
     
@@ -28,14 +29,33 @@ class VolunteerViewController: ViewController {
     var userPrizes = [Prizes]()
     //Registers user as volunteer
     @IBAction func RegisterVolunteer(_ sender: UIButton) {
-        if (volunteerPassword.text!.count < 8) {
-            ShowAlert(Title: "Error", Message: "Password length has to be 8 or more", ViewController: self, ButtonMessage: "Try again")
-        }
-        else if (!volunteerPassword.text!.containsSpecialCharacter) {
+        let reg = CheckRegistration(name: volunteerName.text!, password: volunteerPassword.text!, email: volunteerEmail.text!, view: self)
+        if (!reg) {
+            //Register(name: volunteerName.text!, email: volunteerEmail.text!, password: volunteerPassword.text!, accountType: "Volunteer", userEvents: userEvents, userPrizes: userPrizes, userPoints: 0)
+            let newAccount = Account(email: volunteerEmail.text!, password: volunteerPassword.text!, name: volunteerName.text!, accountType: "Volunteer", userEvents: userEvents, userPrizes: userPrizes, userPoints: 0)
+            //let a = Users(account: newAccount)
             
-        }
-        else {
-            Register(name: volunteerName.text!, email: volunteerEmail.text!, password: volunteerPassword.text!, accountType: "Volunteer", userEvents: userEvents, userPrizes: userPrizes, userPoints: 0)
+            //let dic = newAccount.convUserToDic()
+            
+            let dic = newAccount.convertUser()
+            //let valid = JSONSerialization.isValidJSONObject(dic)
+            //print(valid)
+            do {
+                
+                //data["Users"]?.append(dic)
+                
+                yolo.append(dic)
+                
+                //data["Users"]?.append(newAccount.convertUser())
+                //var r = accJSON as! [String: [String: Any]]
+                //(r["Users"]? as AnyObject).append(dic)
+                //print(r)
+                //try JSONSerialization.save(jsonObject: dic, toFilename: "results.txt")
+                try JSONSerialization.save(jsonObject: yolo, toFilename: "users2.txt")
+            }
+            catch {
+                print("something went wrong")
+            }
         }
     }
 }

@@ -10,6 +10,6 @@
 func Register(name:String, email: String, password: String, accountType: String, userEvents: [Event], userPrizes: [Prizes], userPoints: Double) {
     accounts.append(Account(email: email, password: password, name: name, accountType: accountType, userEvents: userEvents, userPrizes: userPrizes, userPoints: userPoints))
     /*write(text: "Wow", to: "Jim.txt")*/
-    TryWriting(account: email)
+    TryWriting(email: email, password: password)
     
 }

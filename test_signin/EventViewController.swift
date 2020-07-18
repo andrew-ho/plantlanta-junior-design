@@ -16,7 +16,7 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
         EventCollection.delegate = self
         EventCollection.dataSource = self
         
-        
+        InsertEvent(email: currentUser.email, event: Event())
         //Receives notification of a successful event sign up
         NotificationCenter.default.addObserver(self, selector: #selector(ShowEventAlert), name: Notification.Name("EventSignInSuccessAlert"), object: nil)
     }

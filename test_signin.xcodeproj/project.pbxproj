@@ -27,6 +27,7 @@
 		6AB568EE24A5A01600F1F34D /* IndividualEventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB568ED24A5A01600F1F34D /* IndividualEventController.swift */; };
 		6AFA67942495BD4E00161623 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFA67932495BD4E00161623 /* LoginViewController.swift */; };
 		6AFA67962495CCD900161623 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFA67952495CCD900161623 /* MasterViewController.swift */; };
+		C33485F824C1400100DE1C83 /* TableManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33485F724C1400000DE1C83 /* TableManagement.swift */; };
 		CC8BE18124AA570100EA27DA /* PrizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8BE18024AA570100EA27DA /* PrizeViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,7 @@
 		6AB568ED24A5A01600F1F34D /* IndividualEventController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualEventController.swift; sourceTree = "<group>"; };
 		6AFA67932495BD4E00161623 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6AFA67952495CCD900161623 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		C33485F724C1400000DE1C83 /* TableManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableManagement.swift; sourceTree = "<group>"; };
 		CC8BE18024AA570100EA27DA /* PrizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrizeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,7 +108,6 @@
 			isa = PBXGroup;
 			children = (
 				6A28A2582487377200C509BA /* test_signin */,
-				6A28A26F2487377400C509BA /* test_signinTests */,
 				6A28A27A2487377400C509BA /* test_signinUITests */,
 				6A28A2572487377200C509BA /* Products */,
 			);
@@ -132,19 +133,21 @@
 				6A28A2622487377300C509BA /* Assets.xcassets */,
 				6A28A2642487377300C509BA /* LaunchScreen.storyboard */,
 				6A28A2672487377300C509BA /* Info.plist */,
-				6AFA67932495BD4E00161623 /* LoginViewController.swift */,
 				6AFA67952495CCD900161623 /* MasterViewController.swift */,
-				6A9836D024986875003C003F /* Login.swift */,
-				6A9836D224987789003C003F /* Register.swift */,
+				6AFA67932495BD4E00161623 /* LoginViewController.swift */,
 				6A7530E4249B15B200216775 /* VolunteerViewController.swift */,
 				6AA742CE24A30C5300C63C9D /* OrganizationViewController.swift */,
 				6AA742D024A30F2A00C63C9D /* SponsorViewController.swift */,
-				6AA742D224A3123900C63C9D /* EventViewController.swift */,
+				6A9836D024986875003C003F /* Login.swift */,
 				6AA742D424A3143700C63C9D /* EventCollectionCell.swift */,
 				6AB568ED24A5A01600F1F34D /* IndividualEventController.swift */,
+				6A9836D224987789003C003F /* Register.swift */,
+				6AA742D224A3123900C63C9D /* EventViewController.swift */,
 				CC8BE18024AA570100EA27DA /* PrizeViewController.swift */,
 				6A4FE70624B81FD00078F018 /* IndividualPrizeController.swift */,
+				6A28A26F2487377400C509BA /* test_signinTests */,
 				6A4FE70824B82BD00078F018 /* MainPageController.swift */,
+				C33485F724C1400000DE1C83 /* TableManagement.swift */,
 			);
 			path = test_signin;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 				6AB568EE24A5A01600F1F34D /* IndividualEventController.swift in Sources */,
 				6AFA67942495BD4E00161623 /* LoginViewController.swift in Sources */,
 				6A28A25E2487377200C509BA /* ViewController.swift in Sources */,
+				C33485F824C1400100DE1C83 /* TableManagement.swift in Sources */,
 				6AA742D124A30F2A00C63C9D /* SponsorViewController.swift in Sources */,
 				6A4FE70724B81FD00078F018 /* IndividualPrizeController.swift in Sources */,
 				6A7530E5249B15B300216775 /* VolunteerViewController.swift in Sources */,

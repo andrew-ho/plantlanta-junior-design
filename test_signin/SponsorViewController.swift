@@ -26,13 +26,8 @@ class SponsorViewController: ViewController {
     var userPrizes = [Prizes]()
     //Registers User as a sponsor
     @IBAction func RegisterSponsorButton(_ sender: UIButton) {
-        if (SponsorPassword.text!.count < 8) {
-            ShowAlert(Title: "Error", Message: "Password length has to be 4 or more", ViewController: self, ButtonMessage: "Try again")
-        }
-        else if (!SponsorPassword.text!.containsSpecialCharacter) {
-            ShowAlert(Title: "Error", Message: "Password must contain at least one special character", ViewController: self, ButtonMessage: "Try again")
-        }
-        else {
+        let reg = CheckRegistration(name: SponsorName.text!, password: SponsorPassword.text!, email: SponsorEmail.text!, view: self)
+        if (!reg) {
             Register(name: SponsorName.text!, email: SponsorEmail.text!, password: SponsorPassword.text!, accountType: "Sponsor", userEvents: userEvents, userPrizes: userPrizes, userPoints: 0)
         }
     }
