@@ -10,18 +10,19 @@ import Foundation
 import UIKit
 class MyProfileViewController: ViewController {
     
-    @IBOutlet weak var myName: UITextField!
+    @IBOutlet weak var myName: UILabel!
     
     
-    @IBOutlet weak var myEmail: UITextField!
+    @IBOutlet weak var myEmail: UILabel!
     
+    
+    @IBOutlet weak var myPoints: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
         myName.text! = currentUser.name
         myEmail.text! = currentUser.email
-        myName.allowsEditingTextAttributes = false
-        myEmail.allowsEditingTextAttributes = false
+        myPoints.text! = String(currentUser.userPoints)
     }
 }
