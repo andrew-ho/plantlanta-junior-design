@@ -38,6 +38,8 @@ class EditPrizeViewController: ViewController {
         index = GetPrizeIndex(prize: currentPrize, list: currentUser.userPrizes)!
         
         //TODO: go through every other account and remove prize
+        removePrizeFromAccounts(prize: currentPrize)
+        
         
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let nextViewController = storyboard.instantiateViewController(withIdentifier: "myEvents") as! MyEventsViewController
@@ -49,7 +51,19 @@ class EditPrizeViewController: ViewController {
     
     func removePrizeFromAccounts(prize: Prizes) {
         for account in accounts {
-            
+            var found = false
+            var index = 0
+            for prizes in account.userPrizes {
+                if (prizes.prizeName == prize.prizeName) {
+                    found = true
+                }
+                else if (found == false){
+                    index += 1
+                }
+            }
+            if (found) {
+                account.userPrizes.remove(at: index)
+            }
             
         }
     }

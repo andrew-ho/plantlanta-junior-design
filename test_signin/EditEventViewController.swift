@@ -39,6 +39,7 @@ class EditEventViewController: ViewController {
         index = GetEventIndex(event: currentEvent, list: currentUser.userEvents)!
         
         //TODO: go through every other account and remove event
+        removeEventFromAccounts(event: currentEvent)
         
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let nextViewController = storyboard.instantiateViewController(withIdentifier: "myEvents") as! MyEventsViewController
@@ -46,4 +47,24 @@ class EditEventViewController: ViewController {
         
         NotificationCenter.default.post(name: Notification.Name("EventChanged"), object: nil)
     }
+    
+    func removeEventFromAccounts(event: Event) {
+        for account in accounts {
+            var found = false
+            var index = 0
+            for events in account.userEvents {
+                if (events.eventName == event.eventName) {
+                    found = true
+                }
+                else if (found == false){
+                    index += 1
+                }
+            }
+            if (found) {
+                account.userEvents.remove(at: index)
+            }
+            
+        }
+    }
+    
 }
