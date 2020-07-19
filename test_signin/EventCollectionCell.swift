@@ -37,3 +37,26 @@ class PrizeCollectionCell: UICollectionViewCell {
         PrizeImage.image = UIImage(named: prizeImage.prizeImage)
     }
 }
+
+class myEventCollectionCell:
+    UICollectionViewCell {
+    
+    @IBOutlet weak var myEventName: UILabel!
+    
+    
+    @IBOutlet weak var myEventImage: UIImageView!
+    
+    func ConfigureMyEventName(with eventName: Event) {
+        myEventName.text = eventName.eventName
+    }
+    
+    func ConfigureMyEventImage(with eventImage: Event) {
+        myEventImage.image = UIImage(named: eventImage.eventImage)
+    }
+}
+
+class myPrizeCollectionCell: UICollectionViewCell {
+    
+    
+    
+}
