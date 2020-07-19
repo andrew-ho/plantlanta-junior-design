@@ -28,7 +28,22 @@ class SponsorViewController: ViewController {
     @IBAction func RegisterSponsorButton(_ sender: UIButton) {
         let reg = CheckRegistration(name: SponsorName.text!, password: SponsorPassword.text!, email: SponsorEmail.text!, view: self)
         if (!reg) {
-            Register(name: SponsorName.text!, email: SponsorEmail.text!, password: SponsorPassword.text!, accountType: "Sponsor", userEvents: userEvents, userPrizes: userPrizes, userPoints: 0)
+            let newAccount = Account(email: SponsorEmail.text!, password: SponsorPassword.text!, name: SponsorName.text!, accountType: "Sponsor", userEvents: userEvents, userPrizes: userPrizes, userPoints: 0)
+            
+            do {
+                accounts.append(newAccount)
+                
+                var newData = [[String: Any]]()
+                
+                for account in accounts {
+                    newData.append(account.convertUser())
+                }
+                
+                try JSONSerialization.save(jsonObject: newData, toFilename: "users4.txt")
+            }
+            catch {
+                print("org messed up")
+            }
         }
     }
     
