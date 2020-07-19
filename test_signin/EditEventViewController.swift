@@ -21,10 +21,10 @@ class EditEventViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(ChangeEventLabels), name: Notification.Name("ChangeEventLabels"), object: nil)
     }
     
-    @objc func ChangeLabel() {
+    @objc func ChangeEventLabels() {
         eventName.text = currentEvent.eventName
         eventDescription.text = currentEvent.eventDescription
         eventPoints.text = String(currentEvent.eventPoints)
@@ -43,5 +43,7 @@ class EditEventViewController: ViewController {
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let nextViewController = storyboard.instantiateViewController(withIdentifier: "myEvents") as! MyEventsViewController
         self.present(nextViewController, animated:true, completion:nil)
+        
+        NotificationCenter.default.post(name: Notification.Name("EventChanged"), object: nil)
     }
 }

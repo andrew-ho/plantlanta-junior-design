@@ -56,7 +56,15 @@ class myEventCollectionCell:
 }
 
 class myPrizeCollectionCell: UICollectionViewCell {
+    @IBOutlet weak var myPrizeName: UILabel!
     
+    @IBOutlet weak var myPrizeImage: UIImageView!
     
+    func ConfigureMyPrizeName(with prizeName: Prizes) {
+        myPrizeName.text! = prizeName.prizeName
+    }
     
+    func ConfigureMyPrizeImage(with prizeImage: Prizes) {
+        myPrizeImage.image = UIImage(named: prizeImage.prizeImage)
+    }
 }

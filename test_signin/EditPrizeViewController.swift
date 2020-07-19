@@ -20,6 +20,13 @@ class EditPrizeViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(ChangePrizeLabels), name: Notification.Name("ChangePrizeLabels"), object: nil)
+    }
+    
+    @objc func ChangePrizeLabels() {
+        prizeName.text = currentPrize.prizeName
+        prizeDescription.text = currentPrize.prizeDescription
+        prizePoints.text = String(currentPrize.prizePoints)
     }
     
     @IBAction func DeletePrizeButton(_ sender: Any) {
@@ -35,6 +42,15 @@ class EditPrizeViewController: ViewController {
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let nextViewController = storyboard.instantiateViewController(withIdentifier: "myEvents") as! MyEventsViewController
         self.present(nextViewController, animated:true, completion:nil)
+        
+        NotificationCenter.default.post(name: Notification.Name("PrizeChanged"), object: nil)
     }
     
+    
+    func removePrizeFromAccounts(prize: Prizes) {
+        for account in accounts {
+            
+            
+        }
+    }
 }

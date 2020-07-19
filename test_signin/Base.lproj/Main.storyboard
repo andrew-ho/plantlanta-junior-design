@@ -358,33 +358,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Plantlanta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b7v-uK-MVG">
-                                <rect key="frame" x="123" y="75" width="169.33333333333337" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plantlanta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b7v-uK-MVG">
+                                <rect key="frame" x="122.33333333333333" y="75" width="169.33333333333337" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <color key="textColor" systemColor="systemGreenColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Prizes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6rB-70-66M">
-                                <rect key="frame" x="20" y="156" width="149" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Prizes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6rB-70-66M">
+                                <rect key="frame" x="133" y="155" width="149" height="43"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IhN-3W-6Np">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IhN-3W-6Np">
                                 <rect key="frame" x="340" y="154" width="30" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <state key="normal" title="+"/>
                                 <connections>
                                     <segue destination="SzF-FZ-vFg" kind="show" id="DMg-4J-I7R"/>
                                 </connections>
                             </button>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tq5-Fi-cah">
-                                <rect key="frame" x="87" y="277" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ygq-aN-UVe">
+                                <rect key="frame" x="150" y="738" width="114" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <state key="normal" title="Return"/>
+                                <connections>
+                                    <segue destination="rgA-Tb-HFj" kind="show" id="dYU-0E-EPN"/>
+                                </connections>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tq5-Fi-cah">
+                                <rect key="frame" x="20" y="206" width="136" height="128"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="A46-gv-fIf"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Azj-Ic-emp">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -392,34 +399,66 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="pkX-qk-a0V">
-                                        <rect key="frame" x="56" y="0.0" width="128" height="128"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="myPrizeCell" id="pkX-qk-a0V" customClass="myPrizeCollectionCell" customModule="test_signin" customModuleProvider="target">
+                                        <rect key="frame" x="4" y="0.0" width="128" height="129"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="sJQ-U8-s4c">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="129"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fY7-4u-vIA">
+                                                    <rect key="frame" x="43" y="54" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tdm-jX-LkW">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="129"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="fY7-4u-vIA" firstAttribute="centerX" secondItem="sJQ-U8-s4c" secondAttribute="centerX" id="2Wv-dP-WMi"/>
+                                                <constraint firstItem="tdm-jX-LkW" firstAttribute="leading" secondItem="sJQ-U8-s4c" secondAttribute="leading" id="I34-k9-gPh"/>
+                                                <constraint firstItem="fY7-4u-vIA" firstAttribute="centerY" secondItem="sJQ-U8-s4c" secondAttribute="centerY" id="Iog-GF-VLp"/>
+                                                <constraint firstItem="fY7-4u-vIA" firstAttribute="top" secondItem="sJQ-U8-s4c" secondAttribute="top" constant="54" id="JOt-kN-6Ig"/>
+                                                <constraint firstItem="fY7-4u-vIA" firstAttribute="centerY" secondItem="tdm-jX-LkW" secondAttribute="centerY" id="Qh5-dg-DBf"/>
+                                                <constraint firstItem="tdm-jX-LkW" firstAttribute="top" secondItem="sJQ-U8-s4c" secondAttribute="top" id="sns-XK-vz1"/>
+                                                <constraint firstItem="fY7-4u-vIA" firstAttribute="centerX" secondItem="tdm-jX-LkW" secondAttribute="centerX" id="zCp-Ee-3cQ"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="myPrizeImage" destination="tdm-jX-LkW" id="ntF-Gg-ZN2"/>
+                                            <outlet property="myPrizeName" destination="fY7-4u-vIA" id="BNw-Kf-HPk"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ygq-aN-UVe">
-                                <rect key="frame" x="150" y="738" width="114" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <state key="normal" title="Return"/>
-                                <connections>
-                                    <segue destination="rgA-Tb-HFj" kind="show" id="dYU-0E-EPN"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="p3h-7X-hQW"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ygq-aN-UVe" firstAttribute="centerX" secondItem="UzP-QH-iZP" secondAttribute="centerX" id="3Cc-Z9-vST"/>
+                            <constraint firstItem="6rB-70-66M" firstAttribute="leading" secondItem="tq5-Fi-cah" secondAttribute="leading" constant="113" id="A0p-5v-fur"/>
+                            <constraint firstItem="p3h-7X-hQW" firstAttribute="bottom" secondItem="Ygq-aN-UVe" secondAttribute="bottom" constant="10" id="AnN-jQ-0Dd"/>
+                            <constraint firstItem="Ygq-aN-UVe" firstAttribute="centerX" secondItem="b7v-uK-MVG" secondAttribute="centerX" id="K79-4J-jUs"/>
+                            <constraint firstItem="6rB-70-66M" firstAttribute="top" secondItem="UzP-QH-iZP" secondAttribute="top" constant="155" id="adf-C8-el3"/>
+                            <constraint firstItem="p3h-7X-hQW" firstAttribute="trailing" secondItem="tq5-Fi-cah" secondAttribute="trailing" constant="258" id="alx-6Y-xuB"/>
+                            <constraint firstItem="6rB-70-66M" firstAttribute="top" secondItem="b7v-uK-MVG" secondAttribute="bottom" constant="32" id="cg6-T8-9iy"/>
+                            <constraint firstItem="6rB-70-66M" firstAttribute="leading" secondItem="UzP-QH-iZP" secondAttribute="leadingMargin" constant="113" id="mpd-EG-SZh"/>
+                            <constraint firstItem="6rB-70-66M" firstAttribute="bottom" secondItem="IhN-3W-6Np" secondAttribute="bottom" constant="-1" id="nn1-2f-vLP"/>
+                            <constraint firstItem="IhN-3W-6Np" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6rB-70-66M" secondAttribute="trailing" constant="8" symbolic="YES" id="sZf-Wb-B6D"/>
+                            <constraint firstItem="tq5-Fi-cah" firstAttribute="top" secondItem="6rB-70-66M" secondAttribute="bottom" constant="8" id="u2i-gj-bDF"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TfB-Uu-kST"/>
+                    <connections>
+                        <outlet property="addPrizeButton" destination="IhN-3W-6Np" id="sAu-FA-7Zm"/>
+                        <outlet property="myPrizeCollectionView" destination="tq5-Fi-cah" id="Ayc-PG-Zq5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bhm-Dz-Rxw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="749" y="-1212"/>
+            <point key="canvasLocation" x="747.82608695652175" y="-1212.0535714285713"/>
         </scene>
         <!--My Profile View Controller-->
         <scene sceneID="Ntz-SA-jpY">
@@ -1987,6 +2026,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="DMg-4J-I7R"/>
         <segue reference="Dpu-up-gBC"/>
         <segue reference="wrw-yz-YDg"/>
         <segue reference="VFp-Gd-iHD"/>

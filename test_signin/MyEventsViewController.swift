@@ -24,8 +24,21 @@ class MyEventsViewController: ViewController, UICollectionViewDelegate, UICollec
         if (currentUser.accountType == "Volunteer") {
             addEventsButton.isHidden = true
         }
+        //Receives notification of a successful event sign up
+        NotificationCenter.default.addObserver(self, selector: #selector(ShowAddedEventAlert), name: Notification.Name("EventAdded"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(ShowChangedEventAlert), name: Notification.Name("EventChanged"), object: nil)
+        
     }
     
+    //Shows an alert that the user has sucessfully signed up
+    @objc func ShowAddedEventAlert() {
+        ShowAlert(Title: "Success!", Message: "The event has been added", ViewController: self, ButtonMessage: "Ok")
+    }
+    
+    @objc func ShowChangedEventAlert() {
+        ShowAlert(Title: "Success!", Message: "The event has been changed/removed", ViewController: self, ButtonMessage: "Ok")
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return currentUser.userEvents.count
@@ -44,7 +57,7 @@ class MyEventsViewController: ViewController, UICollectionViewDelegate, UICollec
     didSelectItemAt indexPath: IndexPath) {
         currentEvent = currentUser.userEvents[indexPath.row]
         index = indexPath.row
-        //NotificationCenter.default.post(name: Notification.Name("UpdateLabel"), object: nil)
+        NotificationCenter.default.post(name: Notification.Name("ChangeEventLabels"), object: nil)
     }
     
 }
