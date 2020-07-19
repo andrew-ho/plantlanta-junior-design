@@ -29,8 +29,17 @@ class OrganizationViewController: ViewController {
             //Register(name: OrganizationName.text!, email: EmailField.text!, password: OrganizationPassword.text!, accountType: "Organization", userEvents: userEvents, userPrizes: userPrizes, userPoints: 0)
             let newAccount = Account(email: EmailField.text!, password: OrganizationPassword.text!, name: OrganizationName.text!, accountType: "Organization", userEvents: userEvents, userPrizes: userPrizes, userPoints: 0)
             do {
-                data["Users"]?.append(newAccount.convUserToDic())
-                try JSONSerialization.save(jsonObject: data, toFilename: "users.txt")
+                //data["Users"]?.append(newAccount.convUserToDic())
+                //try JSONSerialization.save(jsonObject: data, toFilename: "users.txt")
+                accounts.append(newAccount)
+                
+                var newData = [[String: Any]]()
+                
+                for account in accounts {
+                    newData.append(account.convertUser())
+                }
+                
+                try JSONSerialization.save(jsonObject: newData, toFilename: "users4.txt")
             }
             catch {
                 print("org messed up")

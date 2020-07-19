@@ -66,11 +66,13 @@ class Account: Codable {
         return dic
     }
 }
-var data: [String : [[String: Any]]] = [
-    "Users" : []
-]
+
+var eventList = [Event]()
+var prizeList = [Prizes]()
 
 var yolo = [[String: Any]]()
+var eventFile = [[String: Any]]()
+var prizeFile = [[String: Any]]()
 
 //Event class, holds event information
 struct Event: Codable {

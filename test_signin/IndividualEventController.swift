@@ -59,7 +59,7 @@ class IndividualEventController: ViewController {
         let dateString = formatter.string(from: datePicker.date)
         currentEvent.time = dateString
         print(type(of: dateString))
-        InsertEvent(email: currentUser.email, event: currentEvent)
+        InsertEventToUser(email: currentUser.email, event: currentEvent)
         
         //Change the storyboard programmatically
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)

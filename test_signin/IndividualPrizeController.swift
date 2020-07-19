@@ -40,7 +40,7 @@ class IndividualPrizeController: ViewController {
             //adds prize to user
             //currentUser.userPrizes.append(currentPrize)
             
-            InsertPrize(email: currentUser.email, prize: currentPrize)
+            InsertPrizeToUser(email: currentUser.email, prize: currentPrize)
             //Switch back to prizes
             let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let nextViewController = storyboard.instantiateViewController(withIdentifier: "Shop") as! PrizeViewController

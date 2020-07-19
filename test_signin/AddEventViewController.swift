@@ -28,4 +28,21 @@ class AddEventViewController: ViewController {
         
     }
     
+    func saveEvent() {
+        var event = Event()
+        event.eventDescription = eventDescription.text!
+        //event.eventID = Double(eventList.count + 1)
+        event.eventName = eventName.text!
+        event.eventPoints = Double(eventPoints.text!)!
+        event.publisher = currentUser.name
+        
+        let formatter = DateFormatter()
+        formatter.dateStyle = .full
+        formatter.timeStyle = .full
+        let dateString = formatter.string(from: eventDate.date)
+        event.time = dateString
+        
+        AddEvent(event: event)
+    }
+    
 }

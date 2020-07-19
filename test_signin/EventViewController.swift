@@ -16,6 +16,15 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
         EventCollection.delegate = self
         EventCollection.dataSource = self
         
+        do {
+            eventFile = try JSONSerialization.loadJSON(withFilename: "events.txt") as! [[String : Any]]
+        }
+        catch {
+            print("Something went wrong or file does not exist")
+        }
+        
+        eventList = getEvents()
+        
         //Receives notification of a successful event sign up
         NotificationCenter.default.addObserver(self, selector: #selector(ShowEventAlert), name: Notification.Name("EventSignInSuccessAlert"), object: nil)
     }
@@ -26,7 +35,7 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
     }
     
     //An array containing events
-    let Events: [Event] = [Event(eventName: "Event1", eventID: 0, eventDescription: "Event 1", eventImage: "volunteer1", publisher: "publisher 1", time: "time", eventPoints: 0), Event(eventName: "Event2", eventID: 1, eventDescription: "Event 2", eventImage: "volunteer2", publisher: "publisher 2", time: "time", eventPoints: 0), Event(eventName: "Event3", eventID: 2, eventDescription: "Event 3", eventImage: "volunteer3", publisher: "publisher 3", time: "time", eventPoints: 0), Event(eventName: "Event 4", eventID: 3, eventDescription: "Event 4", eventImage: "volunteer4", publisher: "publisher 4", time: "time", eventPoints: 0), Event(eventName: "Event 5", eventID: 4, eventDescription: "Event 5", eventImage: "volunteer5", publisher: "publisher 5", time: "time", eventPoints: 0)]
+    //let Events: [Event] = [Event(eventName: "Event1", eventID: 0, eventDescription: "Event 1", eventImage: "volunteer1", publisher: "publisher 1", time: "time", eventPoints: 0), Event(eventName: "Event2", eventID: 1, eventDescription: "Event 2", eventImage: "volunteer2", publisher: "publisher 2", time: "time", eventPoints: 0), Event(eventName: "Event3", eventID: 2, eventDescription: "Event 3", eventImage: "volunteer3", publisher: "publisher 3", time: "time", eventPoints: 0), Event(eventName: "Event 4", eventID: 3, eventDescription: "Event 4", eventImage: "volunteer4", publisher: "publisher 4", time: "time", eventPoints: 0), Event(eventName: "Event 5", eventID: 4, eventDescription: "Event 5", eventImage: "volunteer5", publisher: "publisher 5", time: "time", eventPoints: 0)]
     
     @IBOutlet weak var EventCollection: UICollectionView!
     
@@ -34,14 +43,14 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     //Returns the number of items in the events array
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Events.count
+        return eventList.count
     }
     
     //Changes the label in the collectionview to match the event
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = EventCollection.dequeueReusableCell(withReuseIdentifier: "EventCell", for: indexPath) as! EventCollectionCell
-        cell.configureEventName(with: Events[indexPath.row])
-        cell.configureEventImage(with: Events[indexPath.row])
+        cell.configureEventName(with: eventList[indexPath.row])
+        cell.configureEventImage(with: eventList[indexPath.row])
         return cell
     }
     
@@ -49,9 +58,27 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
     //Sends a notification on which event was selected to the individual events page
     func collectionView(_ collectionView: UICollectionView,
     didSelectItemAt indexPath: IndexPath) {
-        currentEvent = Events[indexPath.row]
+        currentEvent = eventList[indexPath.row]
         index = indexPath.row
         NotificationCenter.default.post(name: Notification.Name("UpdateLabel"), object: nil)
+    }
+    
+    
+    func getEvents() -> [Event] {
+        var ev = [Event]()
+        for stuff in eventFile {
+            var event = Event()
+            event.eventDescription = stuff["eventDescription"] as! String
+            event.eventPoints = stuff["eventPoints"] as! Double
+            event.eventImage = stuff["eventImage"] as! String
+            event.eventName = stuff["eventName"] as! String
+            event.eventID = stuff["eventID"] as! Double
+            event.publisher = stuff["publisher"] as! String
+            
+            ev.append(event)
+        }
+        return ev
+        
     }
     
 }

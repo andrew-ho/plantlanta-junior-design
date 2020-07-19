@@ -32,15 +32,19 @@ class MyEventsViewController: ViewController, UICollectionViewDelegate, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        print(currentUser.userEvents)
         let cell = myEventsCollection.dequeueReusableCell(withReuseIdentifier: "myEventsCell", for: indexPath) as! myEventCollectionCell
         cell.ConfigureMyEventName(with: currentUser.userEvents[indexPath.row])
         cell.ConfigureMyEventImage(with: currentUser.userEvents[indexPath.row])
         return cell
     }
     
+    var index = 0
+    
     func collectionView(_ collectionView: UICollectionView,
     didSelectItemAt indexPath: IndexPath) {
+        currentEvent = currentUser.userEvents[indexPath.row]
+        index = indexPath.row
+        //NotificationCenter.default.post(name: Notification.Name("UpdateLabel"), object: nil)
     }
     
 }

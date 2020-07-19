@@ -18,7 +18,7 @@ class ViewController: UIViewController {
             yolo = try JSONSerialization.loadJSON(withFilename: "users4.txt") as! [[String: Any]]
         }
         catch {
-            print("something went wrong")
+            print("something went wrong or the file does not exist yet")
         }
         accounts = GetAccounts()
         for account in accounts {
@@ -44,16 +44,7 @@ func GetAccounts() -> [Account] {
     }
     return newAccounts
 }
-
-func testJson() {
-    print("come on, do math")
-    for stuff in yolo {
-        print(stuff["UserEvents"])
-        print(stuff["name"]!)
-        }
-    }
-    
-    
+        
     
     
 }
