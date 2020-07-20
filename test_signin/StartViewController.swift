@@ -28,6 +28,11 @@ override func viewDidLoad() {
     catch {
         print("Something went wrong or file does not exist")
     }
+    
+    for account in accounts {
+        print(account.name)
+        print(account.userPrizes)
+    }
     //populate event list
     eventList = getEvents()
 

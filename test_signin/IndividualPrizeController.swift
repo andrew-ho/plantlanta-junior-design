@@ -20,10 +20,19 @@ class IndividualPrizeController: ViewController {
     @IBOutlet weak var prizeCost: UILabel!
     
     @IBOutlet weak var myPoints: UILabel!
+    
+    
+    @IBOutlet weak var redeemPrizeButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //Sends a notification to change the label for the prize name
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(showPrizeSignUp), name: Notification.Name("ShowPrize"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(hidePrizeSignUp), name: Notification.Name("HidePrize"), object: nil)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(ChangePrizeLabel), name: Notification.Name("UpdateLabel"), object: nil)
     }
     //changes label to the prize name
@@ -34,8 +43,12 @@ class IndividualPrizeController: ViewController {
         PrizeImage.image = UIImage(named: currentPrize.prizeImage)
         myPoints.text! = String(currentUser.userPoints)
     }
-    
-    
+    @objc func showPrizeSignUp() {
+        redeemPrizeButton.isHidden = false
+    }
+    @objc func hidePrizeSignUp() {
+        redeemPrizeButton.isHidden = true
+    }
     @IBAction func RedeemPrize(_ sender: Any) {
         if (currentUser.userPoints < currentPrize.prizePoints) {
             ShowAlert(Title: "Not Enough Points", Message: "You do not have enough points for this prize", ViewController: self, ButtonMessage: "Ok")
@@ -55,4 +68,10 @@ class IndividualPrizeController: ViewController {
     }
     
     
+    @IBAction func returnButton(_ sender: Any) {
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let nextViewController = storyboard.instantiateViewController(withIdentifier: "Shop") as! PrizeViewController
+        self.present(nextViewController, animated:true, completion:nil)
+        
+    }
 }

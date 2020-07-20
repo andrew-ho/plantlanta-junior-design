@@ -54,7 +54,9 @@ override func viewDidLoad() {
     didSelectItemAt indexPath: IndexPath) {
         currentPrize = prizeList [indexPath.row]
         index = indexPath.row
+        showPrizeSignUp = true
         NotificationCenter.default.post(name: Notification.Name("UpdateLabel"), object: nil)
+        NotificationCenter.default.post(name: Notification.Name("ShowPrize"), object: nil)
     }
     
     

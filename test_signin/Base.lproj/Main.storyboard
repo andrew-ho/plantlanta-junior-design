@@ -529,6 +529,14 @@
                                     <segue destination="ESS-ma-Rj6" kind="show" id="xnu-TQ-2gu"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WBX-VU-823">
+                                <rect key="frame" x="144" y="739" width="114" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <state key="normal" title="Return"/>
+                                <connections>
+                                    <action selector="returnButton:" destination="rgA-Tb-HFj" eventType="touchUpInside" id="2YX-dA-g40"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ssK-kz-5Re">
                                 <rect key="frame" x="110" y="685" width="182" height="46"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
@@ -536,11 +544,6 @@
                                 <connections>
                                     <action selector="viewMyPrizesButtonAction:" destination="rgA-Tb-HFj" eventType="touchUpInside" id="lOY-vN-TD0"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WBX-VU-823">
-                                <rect key="frame" x="144" y="739" width="114" height="60"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <state key="normal" title="Return"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SEg-XC-82U">
                                 <rect key="frame" x="123" y="236" width="71" height="40"/>
@@ -554,14 +557,14 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4uq-Qt-M0d">
-                                <rect key="frame" x="123" y="320" width="68.666666666666686" height="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGW-eM-8iW">
+                                <rect key="frame" x="123" y="403" width="68.666666666666686" height="40"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGW-eM-8iW">
-                                <rect key="frame" x="123" y="403" width="68.666666666666686" height="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4uq-Qt-M0d">
+                                <rect key="frame" x="123" y="320" width="68.666666666666686" height="40"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -607,7 +610,8 @@
                     <connections>
                         <outlet property="myEmail" destination="4uq-Qt-M0d" id="weB-uI-ZYe"/>
                         <outlet property="myName" destination="SEg-XC-82U" id="rAj-n9-Q27"/>
-                        <outlet property="myPoints" destination="gGW-eM-8iW" id="CzX-Yt-Be2"/>
+                        <outlet property="myPoints" destination="gGW-eM-8iW" id="0AV-W2-GK4"/>
+                        <outlet property="myPointsLabel" destination="yyU-Fm-rtx" id="Vy8-0N-bYF"/>
                         <outlet property="viewMyEventsButton" destination="z06-G2-Spx" id="YQh-TI-7br"/>
                         <outlet property="viewMyPrizesButton" destination="ssK-kz-5Re" id="4tk-Hv-X4y"/>
                     </connections>
@@ -1063,7 +1067,7 @@
         <!--MainPage-->
         <scene sceneID="O2y-HY-lhh">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="1ih-M4-d5i" userLabel="MainPage" customClass="MainPageController" customModule="test_signin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mainPage" modalPresentationStyle="fullScreen" id="1ih-M4-d5i" userLabel="MainPage" customClass="MainPageController" customModule="test_signin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cho-8c-rR9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1350,6 +1354,7 @@
                         <outlet property="EventNameLabel" destination="MJI-Oz-Lqh" id="3RL-Xp-sHQ"/>
                         <outlet property="datePicker" destination="2wQ-ld-yQP" id="gdz-T8-XHi"/>
                         <outlet property="eventText" destination="caM-RQ-Rhv" id="Abf-mC-Cpn"/>
+                        <outlet property="signUpButton" destination="e49-PY-911" id="4OP-qb-a7O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9QR-0e-Hk1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1469,7 +1474,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <state key="normal" title="Return"/>
                                 <connections>
-                                    <segue destination="zZF-b5-OZQ" kind="show" id="QPb-kM-cSd"/>
+                                    <segue destination="zZF-b5-OZQ" kind="show" id="fJE-J4-1Bm"/>
                                 </connections>
                             </button>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o47-Pn-Jt2">
@@ -1543,6 +1548,12 @@
                                     <action selector="RedeemPrize:" destination="IO9-Xy-uyA" eventType="touchUpInside" id="AFS-Dt-8uC"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uSO-Tz-Cxc">
+                                <rect key="frame" x="221" y="236" width="48" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Points:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TPG-Fg-S5f">
                                 <rect key="frame" x="120.66666666666669" y="293" width="91.333333333333314" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -1551,12 +1562,6 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKW-Bw-hXo">
                                 <rect key="frame" x="220" y="293" width="48" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uSO-Tz-Cxc">
-                                <rect key="frame" x="221" y="236" width="48" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1594,6 +1599,7 @@
                         <outlet property="PrizeText" destination="IJt-9T-5Xm" id="uq9-Vl-zRm"/>
                         <outlet property="myPoints" destination="eKW-Bw-hXo" id="hS5-rd-yxb"/>
                         <outlet property="prizeCost" destination="uSO-Tz-Cxc" id="Eki-BR-o5u"/>
+                        <outlet property="redeemPrizeButton" destination="x64-nj-nhu" id="ZXW-g4-g90"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kz8-GS-i8W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2232,15 +2238,15 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="QPb-kM-cSd"/>
-        <segue reference="wrw-yz-YDg"/>
+        <segue reference="fJE-J4-1Bm"/>
+        <segue reference="HRI-eP-qKC"/>
         <segue reference="MzY-OY-Fri"/>
         <segue reference="bHt-2b-Gr1"/>
         <segue reference="dYU-0E-EPN"/>
         <segue reference="F3w-38-zbk"/>
         <segue reference="xnu-TQ-2gu"/>
         <segue reference="ruA-w9-IhF"/>
-        <segue reference="c7f-Qw-cqe"/>
+        <segue reference="o4m-I7-HD8"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">

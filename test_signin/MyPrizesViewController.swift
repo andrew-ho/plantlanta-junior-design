@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class MyPrizesViewController: ViewController {
+class MyPrizesViewController: ViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     
     @IBOutlet weak var myPrizeCollectionView: UICollectionView!
@@ -19,10 +19,13 @@ class MyPrizesViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        myPrizeCollectionView.delegate = self
+        myPrizeCollectionView.dataSource = self
+        
         if (currentUser.accountType == "Volunteer" || currentUser.accountType == "Organization") {
             addPrizeButton.isHidden = true
         }
-        
         //Receives notification that the prize has been added
         NotificationCenter.default.addObserver(self, selector: #selector(ShowAddedPrizeAlert), name: Notification.Name("PrizeAdded"), object: nil)
         //receives notification that the prize has been changed
@@ -64,11 +67,13 @@ class MyPrizesViewController: ViewController {
         }
         //if user is not the same as the one who added, go to individual prizes controller
         else {
+            showPrizeSignUp = false
             let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let nextViewController = storyboard.instantiateViewController(withIdentifier: "individualPrize") as! IndividualPrizeController
             self.present(nextViewController, animated:true, completion:nil)
             
             NotificationCenter.default.post(name: Notification.Name("UpdateLabel"), object: nil)
+            NotificationCenter.default.post(name: Notification.Name("HidePrize"), object: nil)
         }
     }
     

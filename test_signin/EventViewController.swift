@@ -56,9 +56,11 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
     //Sends a notification on which event was selected to the individual events page
     func collectionView(_ collectionView: UICollectionView,
     didSelectItemAt indexPath: IndexPath) {
+        showSignUp = true
         currentEvent = eventList[indexPath.row]
         index = indexPath.row
         NotificationCenter.default.post(name: Notification.Name("UpdateLabel"), object: nil)
+        NotificationCenter.default.post(name: Notification.Name("Show"), object: nil)
     }
     
     

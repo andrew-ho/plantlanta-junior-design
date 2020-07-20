@@ -67,11 +67,13 @@ class MyEventsViewController: ViewController, UICollectionViewDelegate, UICollec
         }
         //if the user is not the same as the one who added, go to the individual event controller
         else {
+            
             let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let nextViewController = storyboard.instantiateViewController(withIdentifier: "individualEvent") as! IndividualEventController
             self.present(nextViewController, animated:true, completion:nil)
             
             NotificationCenter.default.post(name: Notification.Name("UpdateLabel"), object: nil)
+            NotificationCenter.default.post(name: Notification.Name("Hide"), object: nil)
         }
     }
     

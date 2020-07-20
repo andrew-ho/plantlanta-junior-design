@@ -18,6 +18,7 @@ class MyProfileViewController: ViewController {
     @IBOutlet weak var viewMyEventsButton: UIButton!
     
     @IBOutlet weak var viewMyPrizesButton: UIButton!
+    @IBOutlet weak var myPointsLabel: UILabel!
     
     @IBOutlet weak var myPoints: UILabel!
     override func viewDidLoad() {
@@ -30,18 +31,33 @@ class MyProfileViewController: ViewController {
         
         if (currentUser.accountType == "Organization") {
             viewMyPrizesButton.isHidden = true
+            myPoints.isHidden = true
+            myPointsLabel.isHidden = true
         }
         if (currentUser.accountType == "Sponsor") {
             viewMyEventsButton.isHidden = true
+            myPoints.isHidden = true
+            myPointsLabel.isHidden = true
+        }
+        else if (currentUser.accountType == "Volunteer") {
+            viewMyEventsButton.isHidden = false
+            viewMyPrizesButton.isHidden = false
+            myPoints.isHidden = false
+            myPointsLabel.isHidden = false
         }
     }
     
     
     
+    @IBAction func returnButton(_ sender: Any) {
+            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let nextViewController = storyboard.instantiateViewController(withIdentifier: "mainPage") as! MainPageController
+            self.present(nextViewController, animated:true, completion:nil)
+        
+    }
     
     @IBAction func viewMyPrizesButtonAction(_ sender: Any) {
-        print("working")
-        if (currentUser.accountType == "Volunteer") {
+        if (currentUser.accountType == "Volunteer" || currentUser.accountType == "Sponsor") {
             let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let nextViewController = storyboard.instantiateViewController(withIdentifier: "myPrizes") as! MyPrizesViewController
             self.present(nextViewController, animated:true, completion:nil)

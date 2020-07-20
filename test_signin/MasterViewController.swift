@@ -293,3 +293,5 @@ extension String {
         return Double(self) != nil
     }
 }
+var showSignUp = true
+var showPrizeSignUp = true

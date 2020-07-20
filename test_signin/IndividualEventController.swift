@@ -19,6 +19,9 @@ class IndividualEventController: ViewController {
     
     @IBOutlet weak var datePicker: UIDatePicker!
     
+    
+    @IBOutlet weak var signUpButton: UIButton!
+    
     var event: Event = Event()
     
     
@@ -30,6 +33,10 @@ class IndividualEventController: ViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         datePicker.addTarget(self, action: #selector(datePickerChanged(sender:)), for: .valueChanged)
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(showSignUp), name: Notification.Name("Show"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(hideSignUp), name: Notification.Name("Hide"), object: nil)
         //Receives notification if an event was selected
         NotificationCenter.default.addObserver(self, selector: #selector(ChangeLabel), name: Notification.Name("UpdateLabel"), object: nil)
     }
@@ -42,6 +49,12 @@ class IndividualEventController: ViewController {
         print(strDate)
     }
     
+    @objc func showSignUp() {
+        signUpButton.isHidden = false
+    }
+    @objc func hideSignUp() {
+        signUpButton.isHidden = true
+    }
     //Changes the label so that the label changes to the current event
     @objc func ChangeLabel() {
         EventNameLabel.text = currentEvent.eventName
