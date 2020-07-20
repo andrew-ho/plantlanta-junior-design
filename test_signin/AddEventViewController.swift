@@ -52,6 +52,7 @@ class AddEventViewController: ViewController {
             event.time = dateString
             
             AddEvent(event: event)
+            InsertEventToUser(email: currentUser.email, event: event)
         }
     }
     

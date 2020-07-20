@@ -42,6 +42,7 @@ class AddPrizeViewController: ViewController {
             prize.publisher = currentUser.name
             prize.prizeImage = "prize1"
             AddPrize(prize: prize)
+            InsertPrizeToUser(email: currentUser.email, prize: prize)
         }
     }
     

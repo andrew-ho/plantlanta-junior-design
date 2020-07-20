@@ -534,16 +534,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <state key="normal" title="View My Prizes"/>
                                 <connections>
-                                    <segue destination="6Js-rD-osK" kind="show" id="BKz-yN-M3c"/>
+                                    <action selector="viewMyPrizesButtonAction:" destination="rgA-Tb-HFj" eventType="touchUpInside" id="lOY-vN-TD0"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WBX-VU-823">
                                 <rect key="frame" x="144" y="739" width="114" height="60"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <state key="normal" title="Return"/>
-                                <connections>
-                                    <segue destination="1ih-M4-d5i" kind="show" id="XLC-7B-cn3"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SEg-XC-82U">
                                 <rect key="frame" x="123" y="236" width="71" height="40"/>
@@ -611,6 +608,8 @@
                         <outlet property="myEmail" destination="4uq-Qt-M0d" id="weB-uI-ZYe"/>
                         <outlet property="myName" destination="SEg-XC-82U" id="rAj-n9-Q27"/>
                         <outlet property="myPoints" destination="gGW-eM-8iW" id="CzX-Yt-Be2"/>
+                        <outlet property="viewMyEventsButton" destination="z06-G2-Spx" id="YQh-TI-7br"/>
+                        <outlet property="viewMyPrizesButton" destination="ssK-kz-5Re" id="4tk-Hv-X4y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uLF-57-gTG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2237,9 +2236,9 @@
         <segue reference="wrw-yz-YDg"/>
         <segue reference="MzY-OY-Fri"/>
         <segue reference="bHt-2b-Gr1"/>
-        <segue reference="JPJ-Bp-goC"/>
+        <segue reference="dYU-0E-EPN"/>
         <segue reference="F3w-38-zbk"/>
-        <segue reference="YyI-kQ-K5i"/>
+        <segue reference="xnu-TQ-2gu"/>
         <segue reference="ruA-w9-IhF"/>
         <segue reference="c7f-Qw-cqe"/>
     </inferredMetricsTieBreakers>

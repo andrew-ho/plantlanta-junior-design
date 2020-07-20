@@ -90,7 +90,7 @@ class EditPrizeViewController: ViewController {
         SaveChanges()
         //switch storyboard
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let nextViewController = storyboard.instantiateViewController(withIdentifier: "myEvents") as! MyEventsViewController
+        let nextViewController = storyboard.instantiateViewController(withIdentifier: "myPrizes") as! MyPrizesViewController
         self.present(nextViewController, animated:true, completion:nil)
         
         NotificationCenter.default.post(name: Notification.Name("PrizeChanged"), object: nil)
