@@ -33,7 +33,7 @@ class IndividualEventController: ViewController {
         //Receives notification if an event was selected
         NotificationCenter.default.addObserver(self, selector: #selector(ChangeLabel), name: Notification.Name("UpdateLabel"), object: nil)
     }
-    
+    //listens to any change in the date picker
     @objc func datePickerChanged(sender: UIDatePicker) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .full
@@ -52,7 +52,7 @@ class IndividualEventController: ViewController {
     
     //Signs the user to the event
     @IBAction func EventSignUpButton(_ sender: Any) {
-        //currentUser.userEvents.append(currentEvent)
+        //checks if the user already has signed up for the event
         var duplicate = false
         for ev in currentUser.userEvents {
             if (ev.eventName == currentEvent.eventName) {
@@ -63,12 +63,13 @@ class IndividualEventController: ViewController {
             ShowAlert(Title: "Error", Message: "You have already signed up for this event", ViewController: self, ButtonMessage: "Ok")
         }
         else {
+            //changes date to a string
             let formatter = DateFormatter()
             formatter.dateStyle = .full
             formatter.timeStyle = .full
             let dateString = formatter.string(from: datePicker.date)
             currentEvent.time = dateString
-            print(type(of: dateString))
+            //adds event to the user
             InsertEventToUser(email: currentUser.email, event: currentEvent)
             
             //Change the storyboard programmatically

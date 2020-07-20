@@ -22,16 +22,16 @@ class EditEventViewController: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //Receives a notification to update the event labels
         NotificationCenter.default.addObserver(self, selector: #selector(ChangeEventLabels), name: Notification.Name("ChangeEventLabels"), object: nil)
     }
-    
+    //change the labels so that they match the current event
     @objc func ChangeEventLabels() {
         eventName.text = currentEvent.eventName
         eventDescription.text = currentEvent.eventDescription
         eventPoints.text = String(currentEvent.eventPoints)
     }
-    
+    //saves changes to the event
     @IBAction func saveEventButton(_ sender: Any) {
         
         if (!eventPoints.text!.isDouble) {
@@ -44,9 +44,11 @@ class EditEventViewController: ViewController {
             ShowAlert(Title: "Error", Message: "Description cannot be blank", ViewController: self, ButtonMessage: "Ok")
         }
         else {
+            //remove from event list
             var index = 0
             index = GetEventIndex(event: currentEvent, list: eventList)!
             let element = eventList.remove(at: index)
+            //make a new event with all the changes
             var newEvent = Event()
             newEvent.eventName = eventName.text!
             newEvent.eventDescription = eventDescription.text!
@@ -56,18 +58,15 @@ class EditEventViewController: ViewController {
             newEvent.publisher = element.publisher
             
             eventList.append(newEvent)
-            
-            
-            //index = GetEventIndex(event: currentEvent, list: currentUser.userEvents)!
-            
+            //look for accounts that have the event and change them
             addToAccounts(event: currentEvent, newEvent: newEvent)
-            
+            //save everything
             SaveChanges()
-            
+            //change storyboard programatically
             let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let nextViewController = storyboard.instantiateViewController(withIdentifier: "myEvents") as! MyEventsViewController
             self.present(nextViewController, animated:true, completion:nil)
-            
+            //sends a notification that an event has changed
             NotificationCenter.default.post(name: Notification.Name("EventChanged"), object: nil)
         }
         
@@ -75,26 +74,25 @@ class EditEventViewController: ViewController {
         
         
     }
-    
+    //deletes event from event list and all accounts that have the current event
     @IBAction func DeleteEventButton(_ sender: Any) {
+        //removes event from event list
         var index = 0
         index = GetEventIndex(event: currentEvent, list: eventList)!
         
         eventList.remove(at: index)
-        
-        //index = GetEventIndex(event: currentEvent, list: currentUser.userEvents)!
-        
-        //TODO: go through every other account and remove event
+        //removes event from every account
         removeEventFromAccounts(event: currentEvent)
-        
+        //save all changes
         SaveChanges()
+        //change storyboard programatically
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let nextViewController = storyboard.instantiateViewController(withIdentifier: "myEvents") as! MyEventsViewController
         self.present(nextViewController, animated:true, completion:nil)
         
         NotificationCenter.default.post(name: Notification.Name("EventChanged"), object: nil)
     }
-    
+    //removes event from all accounts
     func removeEventFromAccounts(event: Event) {
         for account in accounts {
             var found = false
@@ -114,7 +112,7 @@ class EditEventViewController: ViewController {
         }
     }
     
-    
+    //adds changes to all the accounts
     func addToAccounts(event: Event, newEvent: Event) {
         for account in accounts {
             var found = false

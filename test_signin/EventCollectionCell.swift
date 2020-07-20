@@ -8,7 +8,7 @@
 
 import UIKit
 
-//Don't worry about this
+//Puts in labels and images for the collection cells
 class EventCollectionCell: UICollectionViewCell {
     
     @IBOutlet weak var EventName: UILabel!

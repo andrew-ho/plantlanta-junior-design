@@ -23,10 +23,11 @@ class MainPageController: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //hides prizes if organization
         if (currentUser.accountType == "Organization") {
             ViewPrizesButton.isHidden = true
         }
+        //hides events if sponsor
         if (currentUser.accountType == "Sponsor") {
             ViewEventsButton.isHidden = true
         }

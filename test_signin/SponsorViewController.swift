@@ -26,6 +26,7 @@ class SponsorViewController: ViewController {
     var userPrizes = [Prizes]()
     //Registers User as a sponsor
     @IBAction func RegisterSponsorButton(_ sender: UIButton) {
+        //registration checking
         let reg = CheckRegistration(name: SponsorName.text!, password: SponsorPassword.text!, email: SponsorEmail.text!, view: self)
         if (!reg) {
             let newAccount = Account(email: SponsorEmail.text!, password: SponsorPassword.text!, name: SponsorName.text!, accountType: "Sponsor", userEvents: userEvents, userPrizes: userPrizes, userPoints: 0)
@@ -38,7 +39,7 @@ class SponsorViewController: ViewController {
                 for account in accounts {
                     newData.append(account.convertUser())
                 }
-                
+                //saves user into json and puts it into file
                 try JSONSerialization.save(jsonObject: newData, toFilename: "users6.txt")
             }
             catch {

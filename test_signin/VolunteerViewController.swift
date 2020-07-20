@@ -29,6 +29,7 @@ class VolunteerViewController: ViewController {
     var userPrizes = [Prizes]()
     //Registers user as volunteer
     @IBAction func RegisterVolunteer(_ sender: UIButton) {
+        //registration checking
         let reg = CheckRegistration(name: volunteerName.text!, password: volunteerPassword.text!, email: volunteerEmail.text!, view: self)
         if (!reg) {
             let newAccount = Account(email: volunteerEmail.text!, password: volunteerPassword.text!, name: volunteerName.text!, accountType: "Volunteer", userEvents: userEvents, userPrizes: userPrizes, userPoints: 0)
@@ -41,7 +42,7 @@ class VolunteerViewController: ViewController {
                 for account in accounts {
                     newData.append(account.convertUser())
                 }
-                
+                //saves user into json and puts it into file
                 try JSONSerialization.save(jsonObject: newData, toFilename: "users6.txt")
             }
             catch {

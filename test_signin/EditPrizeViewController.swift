@@ -19,10 +19,10 @@ class EditPrizeViewController: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //receives notification to update labels
         NotificationCenter.default.addObserver(self, selector: #selector(ChangePrizeLabels), name: Notification.Name("ChangePrizeLabels"), object: nil)
     }
-    
+    //updates prize labels
     @objc func ChangePrizeLabels() {
         prizeName.text = currentPrize.prizeName
         prizeDescription.text = currentPrize.prizeDescription
@@ -30,7 +30,7 @@ class EditPrizeViewController: ViewController {
     }
     
     
-    
+    //saves changes to the prize
     @IBAction func savePrizeButton(_ sender: Any) {
         if (!prizePoints.text!.isDouble) {
             ShowAlert(Title: "Error", Message: "Please put in a valid number", ViewController: self, ButtonMessage: "Ok")
@@ -42,6 +42,7 @@ class EditPrizeViewController: ViewController {
             ShowAlert(Title: "Error", Message: "Description cannot be blank", ViewController: self, ButtonMessage: "Ok")
         }
         else {
+            //removes prize from prize list
             var index = 0
             index = GetPrizeIndex(prize: currentPrize, list: prizeList)!
             
@@ -75,20 +76,19 @@ class EditPrizeViewController: ViewController {
         }
     }
     
-    
+    //deletes the prize from prize list and all accounts
     @IBAction func DeletePrizeButton(_ sender: Any) {
+        //removes prize from prize list
         var index = 0
         index = GetPrizeIndex(prize: currentPrize, list: prizeList)!
         
         prizeList.remove(at: index)
-        
-        //index = GetPrizeIndex(prize: currentPrize, list: currentUser.userPrizes)!
-        
-        //TODO: go through every other account and remove prize
+        //removes prize from all accounts
         removePrizeFromAccounts(prize: currentPrize)
         
+        //saves all changes
         SaveChanges()
-        
+        //switch storyboard
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let nextViewController = storyboard.instantiateViewController(withIdentifier: "myEvents") as! MyEventsViewController
         self.present(nextViewController, animated:true, completion:nil)
@@ -96,7 +96,7 @@ class EditPrizeViewController: ViewController {
         NotificationCenter.default.post(name: Notification.Name("PrizeChanged"), object: nil)
     }
     
-    
+    //remove prize from all accounts
     func removePrizeFromAccounts(prize: Prizes) {
         for account in accounts {
             var found = false
@@ -115,7 +115,7 @@ class EditPrizeViewController: ViewController {
             
         }
     }
-    
+    //saves changes to all accounts
     func addPrizeToAccounts(prize: Prizes, newPrize: Prizes) {
         for account in accounts {
             var found = false

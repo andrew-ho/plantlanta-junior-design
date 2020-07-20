@@ -15,6 +15,7 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
         
         EventCollection.delegate = self
         EventCollection.dataSource = self
+        //loads events and puts it in the event list
         do {
             eventFile = try JSONSerialization.loadJSON(withFilename: "events2.txt") as! [[String : Any]]
         }
@@ -27,17 +28,12 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
         
         //Receives notification of a successful event sign up
         NotificationCenter.default.addObserver(self, selector: #selector(ShowEventAlert), name: Notification.Name("EventSignInSuccessAlert"), object: nil)
-        
-        print(eventList.count)
     }
     
     //Shows an alert that the user has sucessfully signed up
     @objc func ShowEventAlert() {
         ShowAlert(Title: "Success!", Message: "You have succesfully signed up for the event", ViewController: self, ButtonMessage: "Ok")
     }
-    
-    //An array containing events
-    //let Events: [Event] = [Event(eventName: "Event1", eventID: 0, eventDescription: "Event 1", eventImage: "volunteer1", publisher: "publisher 1", time: "time", eventPoints: 0), Event(eventName: "Event2", eventID: 1, eventDescription: "Event 2", eventImage: "volunteer2", publisher: "publisher 2", time: "time", eventPoints: 0), Event(eventName: "Event3", eventID: 2, eventDescription: "Event 3", eventImage: "volunteer3", publisher: "publisher 3", time: "time", eventPoints: 0), Event(eventName: "Event 4", eventID: 3, eventDescription: "Event 4", eventImage: "volunteer4", publisher: "publisher 4", time: "time", eventPoints: 0), Event(eventName: "Event 5", eventID: 4, eventDescription: "Event 5", eventImage: "volunteer5", publisher: "publisher 5", time: "time", eventPoints: 0)]
     
     @IBOutlet weak var EventCollection: UICollectionView!
     

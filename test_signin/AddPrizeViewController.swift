@@ -22,6 +22,7 @@ class AddPrizeViewController: ViewController {
         
     }
     
+    //helper method to saving prizes
     func savePrize() {
         if (!prizePoints.text!.isDouble) {
             ShowAlert(Title: "Error", Message: "Please put in a valid number", ViewController: self, ButtonMessage: "Ok")
@@ -33,6 +34,7 @@ class AddPrizeViewController: ViewController {
             ShowAlert(Title: "Error", Message: "Description cannot be blank", ViewController: self, ButtonMessage: "Ok")
         }
         else {
+            //adds prize to prize list
             var prize = Prizes()
             prize.prizeName = prizeName.text!
             prize.prizeDescription = prizeDescription.text!
@@ -42,6 +44,8 @@ class AddPrizeViewController: ViewController {
             AddPrize(prize: prize)
         }
     }
+    
+    //saves the prize to the prize list and switches back to MyPrizes
     @IBAction func savePrizeButton(_ sender: Any) {
         savePrize()
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)

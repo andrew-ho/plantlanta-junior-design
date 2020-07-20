@@ -7,37 +7,8 @@
 //
 
 import Foundation
-
-func test() {
-    if (yolo.count != 0) {
-        for s in yolo {
-            print(s["email"]!)
-        }
-    }
-}
-
+//checks if user already exists
 func CheckIfUserExists(userName: String) -> Bool {
-    /*if (data.count != 0) {
-        for user in data["Users"]! {
-            for values in user.values {
-                let f = values as! [String: Any]
-                if (f["name"] as! String == userName) {
-                    return true
-                }
-            }
-        }
-    }
-    
-    return false*/
-    
-    /*if (yolo.count != 0) {
-        for user in yolo {
-            if (user["name"] as! String == userName) {
-                return true
-            }
-        }
-    }*/
-    
     if (accounts.count != 0) {
         for account in accounts {
             if (account.name == userName) {
@@ -48,24 +19,8 @@ func CheckIfUserExists(userName: String) -> Bool {
     return false
 }
 
+//checks if email already exists
 func CheckIfEmailExists(email: String) -> Bool {
-    /*if (data.count != 0) {
-        for user in data["Users"]! {
-            for values in user.values {
-                let f = values as! [String: Any]
-                if (f["email"] as! String == email) {
-                    return true
-                }
-            }
-        }
-    }*/
-    /*if (yolo.count != 0) {
-        for user in yolo {
-            if (user["email"] as! String == email) {
-                return true
-            }
-        }
-    }*/
     if (accounts.count != 0) {
         for account in accounts {
             if (account.email == email) {
@@ -76,7 +31,7 @@ func CheckIfEmailExists(email: String) -> Bool {
     return false
 }
     
-
+//registration checks
 func CheckRegistration(name: String, password: String, email: String, view: ViewController) -> Bool{
     if (name.count < 4) {
         ShowAlert(Title: "Error", Message: "Username has to be of length 4 or more", ViewController: view, ButtonMessage: "Try again")
@@ -123,7 +78,6 @@ func loadAccounts() {
 
 //Check if account exists in the accounts array in masterviewcontroller
 func CheckAccount(email: String, password: String) -> Account {
-    
     let user = GetUser(email: email)
     
     if (user != nil) {
@@ -131,28 +85,6 @@ func CheckAccount(email: String, password: String) -> Account {
     }
     return Account()
 }
-
-//saves to a text file on the mac
-func TryWriting(email: String, password: String) {
-    let filename = getDocumentsDirectory().appendingPathComponent("output.txt")
-
-    do {
-        var prevText = try String(contentsOf: filename, encoding: .utf8)
-        prevText = prevText + "\n" + email
-        try prevText.write(to: filename, atomically: true, encoding: String.Encoding.utf8)
-        /*try account.write(to: filename, atomically: true, encoding: String.Encoding.utf8)*/
-        print(filename)
-        } catch {
-            // failed to write file – bad permissions, bad filename, missing permissions, or more likely it can't be converted to the encoding
-        }
-    
-    //reading
-    do {
-        let text2 = try String(contentsOf: filename, encoding: .utf8)
-        print("text is " + text2)
-    }
-    catch {/* error handling here */}
-    }
 
 //prints the document directory in where the text file is located on the mac
 func getDocumentsDirectory() -> URL {

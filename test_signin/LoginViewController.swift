@@ -27,12 +27,7 @@ class LoginViewController: ViewController {
     //Actions
     
     @IBAction func EnterButton(_ sender: UIButton) {
-        /*let currentAccount = Account()
-        accounts.append(currentAccount)
-        */
-        
-        
-        //Checking
+        //Checking login validations
         found = CheckAccount(email: EmailTextField.text!, password: PasswordTextField.text!)
 
         if (found.accountType == "None") {

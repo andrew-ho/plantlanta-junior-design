@@ -16,14 +16,14 @@ override func viewDidLoad() {
     
     PrizeFunction.delegate = self
     PrizeFunction.dataSource = self
-    
+    //gets the file containing the json strings of all the prizes
     do {
         prizeFile = try JSONSerialization.loadJSON(withFilename: "prizes.txt") as! [[String : Any]]
     }
     catch {
         print("Something went wrong or file does not exist")
     }
-    
+    //populates the prize list
     prizeList = getPrizes()
     
     //Receives notification of a successful event sign up
@@ -33,11 +33,13 @@ override func viewDidLoad() {
     @objc func ShowPrizeAlert() {
         ShowAlert(Title: "Success!", Message: "You have succesfully signed up for the event", ViewController: self, ButtonMessage: "Ok")
     }
-    //let Prize: [Prizes] = [Prizes(prizeName: "Prize 1", prizeID: 0, prizeDescription: "Prize 1", prizePoints: 0, prizeImage: "prize1", publisher: "publisher 1"), Prizes(prizeName: "Prize2", prizeID: 1, prizeDescription: "Prize 2", prizePoints: 0, prizeImage: "prize2", publisher: "publisher 2")]
     
+    //returns number of prizes in the prize list
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
            return prizeList.count
        }
+    
+    //puts in names and images to the prizes
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = PrizeFunction.dequeueReusableCell(withReuseIdentifier: "PrizeView", for: indexPath) as! PrizeCollectionCell
         cell.ConfigurePrizeName(with: prizeList [indexPath.row])
@@ -46,6 +48,8 @@ override func viewDidLoad() {
         return cell
     }
     var index = 0
+    
+    //sets the current prize
     func collectionView(_ collectionView: UICollectionView,
     didSelectItemAt indexPath: IndexPath) {
         currentPrize = prizeList [indexPath.row]
@@ -57,7 +61,7 @@ override func viewDidLoad() {
     @IBOutlet weak var EventCollection: UICollectionView!
     @IBOutlet weak var PrizeFunction: UICollectionView!
     
-    
+    //pupulates the prize list
     func getPrizes() -> [Prizes] {
         var prizes = [Prizes]()
         for stuff in prizeFile {

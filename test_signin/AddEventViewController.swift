@@ -24,9 +24,8 @@ class AddEventViewController: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(eventList.count)
     }
-    
+    //helper method for saving events
     func saveEvent() {
         if (!eventPoints.text!.isDouble) {
             ShowAlert(Title: "Error", Message: "Please put in a valid number", ViewController: self, ButtonMessage: "Ok")
@@ -38,13 +37,14 @@ class AddEventViewController: ViewController {
             ShowAlert(Title: "Error", Message: "Description cannot be blank", ViewController: self, ButtonMessage: "Ok")
         }
         else {
+            //make new event containing
             var event = Event()
             event.eventDescription = eventDescription.text!
-            //event.eventID = Double(eventList.count + 1)
             event.eventName = eventName.text!
             event.eventPoints = Double(eventPoints.text!)!
             event.publisher = currentUser.name
             event.eventImage = "volunteer1"
+            //changes date to string
             let formatter = DateFormatter()
             formatter.dateStyle = .full
             formatter.timeStyle = .full
@@ -52,11 +52,10 @@ class AddEventViewController: ViewController {
             event.time = dateString
             
             AddEvent(event: event)
-            print(eventList.count)
         }
     }
     
-    
+    //saves the event to the event list and switch storyboards
     @IBAction func saveEventButton(_ sender: Any) {
         saveEvent()
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)

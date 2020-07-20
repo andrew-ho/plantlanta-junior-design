@@ -19,7 +19,6 @@
 		6A4FE70924B82BD00078F018 /* MainPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4FE70824B82BD00078F018 /* MainPageController.swift */; };
 		6A7530E5249B15B300216775 /* VolunteerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7530E4249B15B200216775 /* VolunteerViewController.swift */; };
 		6A9836D124986875003C003F /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9836D024986875003C003F /* Login.swift */; };
-		6A9836D324987789003C003F /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9836D224987789003C003F /* Register.swift */; };
 		6AA742CF24A30C5300C63C9D /* OrganizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA742CE24A30C5300C63C9D /* OrganizationViewController.swift */; };
 		6AA742D124A30F2A00C63C9D /* SponsorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA742D024A30F2A00C63C9D /* SponsorViewController.swift */; };
 		6AA742D324A3123900C63C9D /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA742D224A3123900C63C9D /* EventViewController.swift */; };
@@ -75,7 +74,6 @@
 		6A4FE70824B82BD00078F018 /* MainPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageController.swift; sourceTree = "<group>"; };
 		6A7530E4249B15B200216775 /* VolunteerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerViewController.swift; sourceTree = "<group>"; };
 		6A9836D024986875003C003F /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
-		6A9836D224987789003C003F /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		6AA742CE24A30C5300C63C9D /* OrganizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationViewController.swift; sourceTree = "<group>"; };
 		6AA742D024A30F2A00C63C9D /* SponsorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorViewController.swift; sourceTree = "<group>"; };
 		6AA742D224A3123900C63C9D /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
@@ -156,7 +154,6 @@
 				6AA742D024A30F2A00C63C9D /* SponsorViewController.swift */,
 				6A9836D024986875003C003F /* Login.swift */,
 				6AB568ED24A5A01600F1F34D /* IndividualEventController.swift */,
-				6A9836D224987789003C003F /* Register.swift */,
 				6AA742D224A3123900C63C9D /* EventViewController.swift */,
 				6AA742D424A3143700C63C9D /* EventCollectionCell.swift */,
 				CC8BE18024AA570100EA27DA /* PrizeViewController.swift */,
@@ -344,7 +341,6 @@
 				C37F58D724C3BDCF00D42E89 /* MyEventsViewController.swift in Sources */,
 				C37F58D524C3BC4F00D42E89 /* MyProfileViewController.swift in Sources */,
 				6A9836D124986875003C003F /* Login.swift in Sources */,
-				6A9836D324987789003C003F /* Register.swift in Sources */,
 				C37F58E324C5011300D42E89 /* StartViewController.swift in Sources */,
 				6A28A25A2487377200C509BA /* AppDelegate.swift in Sources */,
 				C37F58D924C3BDDF00D42E89 /* MyPrizesViewController.swift in Sources */,

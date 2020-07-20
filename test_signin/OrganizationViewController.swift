@@ -24,13 +24,12 @@ class OrganizationViewController: ViewController {
     var userPrizes = [Prizes]()
     //Registers user as an organization
     @IBAction func RegisterOrganizationButton(_ sender: UIButton) {
+        //registration checking
         let reg = CheckRegistration(name: OrganizationName.text!, password: OrganizationPassword.text!, email: EmailField.text!, view: self)
         if (!reg) {
-            //Register(name: OrganizationName.text!, email: EmailField.text!, password: OrganizationPassword.text!, accountType: "Organization", userEvents: userEvents, userPrizes: userPrizes, userPoints: 0)
             let newAccount = Account(email: EmailField.text!, password: OrganizationPassword.text!, name: OrganizationName.text!, accountType: "Organization", userEvents: userEvents, userPrizes: userPrizes, userPoints: 0)
             do {
-                //data["Users"]?.append(newAccount.convUserToDic())
-                //try JSONSerialization.save(jsonObject: data, toFilename: "users.txt")
+
                 accounts.append(newAccount)
                 
                 var newData = [[String: Any]]()
@@ -38,7 +37,7 @@ class OrganizationViewController: ViewController {
                 for account in accounts {
                     newData.append(account.convertUser())
                 }
-                
+                //saves user into json and puts it into file
                 try JSONSerialization.save(jsonObject: newData, toFilename: "users6.txt")
             }
             catch {

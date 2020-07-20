@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+//gets the user
 func GetUser(email: String) -> Account? {
     for user in accounts {
         if (user.email == email) {
@@ -16,7 +16,7 @@ func GetUser(email: String) -> Account? {
     }
     return nil
 }
-
+//gets the index of the event from given list
 func GetEventIndex(event: Event, list: [Event]) -> Int? {
     var index = 0
     while (index < list.count) {
@@ -29,7 +29,7 @@ func GetEventIndex(event: Event, list: [Event]) -> Int? {
     }
     return nil
 }
-
+//gets the index of the prize from the given list
 func GetPrizeIndex(prize: Prizes, list: [Prizes]) -> Int? {
     var index = 0
     while (index < list.count) {
@@ -42,15 +42,11 @@ func GetPrizeIndex(prize: Prizes, list: [Prizes]) -> Int? {
     }
     return nil
 }
-
+//adds event to the user
 func InsertEventToUser(email: String, event: Event) {
     for user in accounts {
         if (user.email == email) {
-            print("user before appending")
-            print(JSONSerialization.isValidJSONObject(user.convertUser()))
             user.userEvents.append(event)
-            print("user after appending")
-            print(JSONSerialization.isValidJSONObject(user.convertUser()))
         }
     }
     var newData = [[String: Any]]()
@@ -58,7 +54,7 @@ func InsertEventToUser(email: String, event: Event) {
     for account in accounts {
         newData.append(account.convertUser())
     }
-    print(JSONSerialization.isValidJSONObject(newData))
+    //saves changes to the user
     do {
         try JSONSerialization.save(jsonObject: newData, toFilename: "users6.txt")
     } catch {
@@ -66,6 +62,7 @@ func InsertEventToUser(email: String, event: Event) {
     }
 }
 
+//adds prizes to the user
 func InsertPrizeToUser(email: String, prize: Prizes) {
     for user in accounts {
         if (user.email == email) {
@@ -76,13 +73,14 @@ func InsertPrizeToUser(email: String, prize: Prizes) {
     for account in accounts {
         newData.append(account.convertUser())
     }
+    //saves changes to the user
     do {
         try JSONSerialization.save(jsonObject: newData, toFilename: "users6.txt")
     } catch {
         print("inserting prizes did not work or file does not exist yet")
     }
 }
-
+//adds event to the event list and saves it
 func AddEvent(event: Event) {
     eventList.append(event)
         var newEvents = [[String: Any]]()
@@ -96,7 +94,7 @@ func AddEvent(event: Event) {
             print("something went wrong with saving events to text or file does not exist yet")
         }
 }
-
+//adds prizes to the prize list and saves it
 func AddPrize(prize: Prizes) {
     prizeList.append(prize)
     var newPrizes = [[String: Any]]()
@@ -111,11 +109,12 @@ func AddPrize(prize: Prizes) {
     }
 }
 
+//Converts the json string after loading to an account
 func ConvertToAccount(User: [String: Any]) -> Account {
     let newAccount = Account(email: User["email"] as! String, password: User["password"] as! String, name: User["name"] as! String, accountType: User["accountType"] as! String, userEvents: User["userEvents"] as! [Event], userPrizes: User["userPrizes"] as! [Prizes], userPoints: User["userPoints"] as! Double)
     return newAccount
 }
-
+//saves any and all changes to their respective files
 func SaveChanges() {
     var newData = [[String: Any]]()
     

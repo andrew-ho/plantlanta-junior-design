@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+//file where i contain global method and vars
 class Main {
   var name:String
   init(name:String) {
@@ -55,23 +56,26 @@ class Account: Codable {
         self.userPrizes = [Prizes]()
         self.userPoints = 0
     }
-    
+    //ignore this, failed attempt of making a json string
     func convUserToDic() -> [String :[String: Any]] {
         let dic: [String: [String: Any]] = ["Users" : ["name": self.name, "email":self.email, "password":self.password, "accountType":self.accountType, "userEvents":self.userEvents, "userPrizes":self.userPrizes, "userPoints":self.userPoints]]
         return dic
     }
-    
+    //converts the account to a dictionary so that it can be converted to a json string
     func convertUser() -> [String: Any] {
         let dic: [String: Any] = ["name": self.name, "email":self.email, "password":self.password, "accountType":self.accountType, "userEvents": ConvertEventArrToDic(arr: self.userEvents), "userPrizes": ConvertPrizeArrToDic(arr: self.userPrizes), "userPoints":self.userPoints]
         return dic
     }
 }
-
+//list to contain all events
 var eventList = [Event]()
+//list to contain all prizes
 var prizeList = [Prizes]()
-
+//user list (i got really frustrated so i named it yolo)
 var yolo = [[String: Any]]()
+//a list to contain the file containing the json strings of the events
 var eventFile = [[String: Any]]()
+//a list to contain the file containing the json strings of the prizes
 var prizeFile = [[String: Any]]()
 
 //Event class, holds event information
@@ -111,6 +115,7 @@ struct Event: Codable {
     }
 }
 
+//converts [Event] to [[String; Any]]
 func ConvertEventArrToDic(arr: [Event]) -> [[String: Any]] {
     var eventArr = [[String: Any]]()
     for event in arr {
@@ -118,7 +123,7 @@ func ConvertEventArrToDic(arr: [Event]) -> [[String: Any]] {
     }
     return eventArr
 }
-
+//converts the eventFile back to [Event]
 func ConvertEventDicToArray(dic: [[String: Any]]) -> [Event] {
     var eventArray: [Event] = []
     for stuff in dic {
@@ -134,14 +139,14 @@ func ConvertEventDicToArray(dic: [[String: Any]]) -> [Event] {
     return eventArray
 }
 
+//Converts [Prizes] to [[String: Any]]
 func ConvertPrizeArrToDic(arr: [Prizes]) -> [[String: Any]] {
     var prizeArr = [[String: Any]]()
     for prize in arr {
         prizeArr.append(prize.convertToDic())
     }
     return prizeArr
-}
-
+}//converts the prizeFile back to [Prizes]
 func ConvertPrizeDicToArray(dic: [[String: Any]]) -> [Prizes] {
     var prizeArr = [Prizes]()
     for stuff in dic {
@@ -157,7 +162,7 @@ func ConvertPrizeDicToArray(dic: [[String: Any]]) -> [Prizes] {
     return prizeArr
 }
 
-//I don't know what the hell to put in here
+//class for prizes
 struct Prizes: Codable {
     var prizeName : String
     var prizeID : Double
@@ -204,7 +209,7 @@ func ShowAlert(Title: String, Message: String, ViewController: UIViewController,
     print("the var found is ")
     
 }
-
+//checks the string if there are any special characters
 extension String {
    var containsSpecialCharacter: Bool {
       let regex = ".*[^A-Za-z0-9].*"
@@ -212,7 +217,7 @@ extension String {
       return testString.evaluate(with: self)
    }
 }
-
+//checks the string to see if its a valid email
 extension String {
     var validEmail: Bool {
         let REGEX: String
@@ -221,36 +226,7 @@ extension String {
     }
 }
 
-func readBundle(file: String) -> String {
-    var res = ""
-    if let asset = NSDataAsset(name: file) , let string = String(data:asset.data, encoding: String.Encoding.utf8) {
-        res = string
-    }
-    return res
-}
-
-func writeDataToFile(file:String, data: String)-> Bool{
- // check our data exists
-    //guard let data = textView.text else {return false}
-    //print(data)
-    //get the file path for the file in the bundle
-    // if it doesnt exisit, make it in the bundle
-    var fileName = file + ".txt"
-    if let filePath = Bundle.main.path(forResource: file, ofType: "txt"){
-        fileName = filePath
-    } else {
-        fileName = Bundle.main.bundlePath + fileName
-    }
-    //write the file, return true if it works, false otherwise.
-    do{
-        try data.write(toFile: fileName, atomically: true, encoding: String.Encoding.utf8 )
-        return true
-    } catch{
-        return false
-    }
-
-}
-
+//saves a valid json object to file or loads the json object from file
 extension JSONSerialization {
     
     static func loadJSON(withFilename filename: String) throws -> Any? {
@@ -280,7 +256,7 @@ extension JSONSerialization {
         return false
     }
 }
-
+//attempt to do something that I now forgot what it was
 extension Account : Hashable {
     public func hash(into hasher: inout Hasher) {
              hasher.combine(ObjectIdentifier(self).hashValue)
@@ -294,20 +270,7 @@ extension Account: Equatable {
     }
 }
 
-func convertIntoJSONString(arrayObject: [Any]) -> String? {
-
-        do {
-            let jsonData: Data = try JSONSerialization.data(withJSONObject: arrayObject, options: [])
-            if  let jsonString = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue) {
-                return jsonString as String
-            }
-            
-        } catch let error as NSError {
-            print("Array convertIntoJSON - \(error.description)")
-        }
-        return nil
-    }
-
+//converts eventFile to [Event]
 func getEvents() -> [Event] {
     var ev = [Event]()
     for stuff in eventFile {
@@ -324,7 +287,7 @@ func getEvents() -> [Event] {
     return ev
     
 }
-
+//checks if the string is a double
 extension String {
     var isDouble: Bool {
         return Double(self) != nil
