@@ -53,22 +53,33 @@ class IndividualEventController: ViewController {
     //Signs the user to the event
     @IBAction func EventSignUpButton(_ sender: Any) {
         //currentUser.userEvents.append(currentEvent)
-        let formatter = DateFormatter()
-        formatter.dateStyle = .full
-        formatter.timeStyle = .full
-        let dateString = formatter.string(from: datePicker.date)
-        currentEvent.time = dateString
-        print(type(of: dateString))
-        InsertEventToUser(email: currentUser.email, event: currentEvent)
-        
-        //Change the storyboard programmatically
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Events") as! EventViewController
-        self.present(nextViewController, animated:true, completion:nil)
-        
-        
-        //Sending notification back to events
-        NotificationCenter.default.post(name: Notification.Name("EventSignInSuccessAlert"), object: nil)
+        var duplicate = false
+        for ev in currentUser.userEvents {
+            if (ev.eventName == currentEvent.eventName) {
+                duplicate = true
+            }
+        }
+        if (duplicate) {
+            ShowAlert(Title: "Error", Message: "You have already signed up for this event", ViewController: self, ButtonMessage: "Ok")
+        }
+        else {
+            let formatter = DateFormatter()
+            formatter.dateStyle = .full
+            formatter.timeStyle = .full
+            let dateString = formatter.string(from: datePicker.date)
+            currentEvent.time = dateString
+            print(type(of: dateString))
+            InsertEventToUser(email: currentUser.email, event: currentEvent)
+            
+            //Change the storyboard programmatically
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Events") as! EventViewController
+            self.present(nextViewController, animated:true, completion:nil)
+            
+            
+            //Sending notification back to events
+            NotificationCenter.default.post(name: Notification.Name("EventSignInSuccessAlert"), object: nil)
+        }
     }
 }
 
