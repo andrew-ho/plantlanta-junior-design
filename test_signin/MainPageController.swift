@@ -24,5 +24,11 @@ class MainPageController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if (currentUser.accountType == "Organization") {
+            ViewPrizesButton.isHidden = true
+        }
+        if (currentUser.accountType == "Sponsor") {
+            ViewEventsButton.isHidden = true
+        }
     }
 }

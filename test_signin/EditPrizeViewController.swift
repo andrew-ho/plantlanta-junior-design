@@ -63,7 +63,7 @@ class EditPrizeViewController: ViewController {
             
             //index = GetEventIndex(event: currentEvent, list: currentUser.userEvents)!
             
-            addPrizeToAccounts(prize: newPrize)
+            addPrizeToAccounts(prize: currentPrize, newPrize: newPrize)
             
             SaveChanges()
             
@@ -116,7 +116,7 @@ class EditPrizeViewController: ViewController {
         }
     }
     
-    func addPrizeToAccounts(prize: Prizes) {
+    func addPrizeToAccounts(prize: Prizes, newPrize: Prizes) {
         for account in accounts {
             var found = false
             var index = 0

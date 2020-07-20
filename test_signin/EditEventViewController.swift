@@ -60,15 +60,15 @@ class EditEventViewController: ViewController {
             
             //index = GetEventIndex(event: currentEvent, list: currentUser.userEvents)!
             
-            addToAccounts(event: newEvent)
+            addToAccounts(event: currentEvent, newEvent: newEvent)
             
             SaveChanges()
             
-            /*let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let nextViewController = storyboard.instantiateViewController(withIdentifier: "myEvents") as! MyEventsViewController
             self.present(nextViewController, animated:true, completion:nil)
             
-            NotificationCenter.default.post(name: Notification.Name("EventChanged"), object: nil)*/
+            NotificationCenter.default.post(name: Notification.Name("EventChanged"), object: nil)
         }
         
         
@@ -115,7 +115,7 @@ class EditEventViewController: ViewController {
     }
     
     
-    func addToAccounts(event: Event) {
+    func addToAccounts(event: Event, newEvent: Event) {
         for account in accounts {
             var found = false
             var index = 0
@@ -129,7 +129,7 @@ class EditEventViewController: ViewController {
             }
             if (found) {
                 account.userEvents.remove(at: index)
-                account.userEvents.append(event)
+                account.userEvents.append(newEvent)
             }
             
         }
