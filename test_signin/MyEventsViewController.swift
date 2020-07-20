@@ -21,7 +21,7 @@ class MyEventsViewController: ViewController, UICollectionViewDelegate, UICollec
         myEventsCollection.delegate = self
         myEventsCollection.dataSource = self
         
-        if (currentUser.accountType == "Volunteer") {
+        if (currentUser.accountType == "Volunteer" || currentUser.accountType == "Sponsor") {
             addEventsButton.isHidden = true
         }
         //Receives notification of a successful event sign up
@@ -57,7 +57,21 @@ class MyEventsViewController: ViewController, UICollectionViewDelegate, UICollec
     didSelectItemAt indexPath: IndexPath) {
         currentEvent = currentUser.userEvents[indexPath.row]
         index = indexPath.row
-        NotificationCenter.default.post(name: Notification.Name("ChangeEventLabels"), object: nil)
+        
+        if (currentEvent.publisher == currentUser.name) {
+            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let nextViewController = storyboard.instantiateViewController(withIdentifier: "editEvent") as! EditEventViewController
+            self.present(nextViewController, animated:true, completion:nil)
+            
+            NotificationCenter.default.post(name: Notification.Name("ChangeEventLabels"), object: nil)
+        }
+        else {
+            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let nextViewController = storyboard.instantiateViewController(withIdentifier: "individualEvent") as! IndividualEventController
+            self.present(nextViewController, animated:true, completion:nil)
+            
+            NotificationCenter.default.post(name: Notification.Name("UpdateLabel"), object: nil)
+        }
     }
     
 }

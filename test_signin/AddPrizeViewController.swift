@@ -22,13 +22,33 @@ class AddPrizeViewController: ViewController {
         
     }
     
-    func saveEvent() {
-        var prize = Prizes()
-        prize.prizeName = prizeName.text!
-        prize.prizeDescription = prizeDescription.text!
-        prize.prizePoints = Double(prizePoints.text!)!
-        prize.publisher = currentUser.name
+    func savePrize() {
+        if (!prizePoints.text!.isDouble) {
+            ShowAlert(Title: "Error", Message: "Please put in a valid number", ViewController: self, ButtonMessage: "Ok")
+        }
+        else if (prizeName.text! == "") {
+            ShowAlert(Title: "Error", Message: "Name cannot be blank", ViewController: self, ButtonMessage: "Ok")
+        }
+        else if (prizeDescription.text! == "") {
+            ShowAlert(Title: "Error", Message: "Description cannot be blank", ViewController: self, ButtonMessage: "Ok")
+        }
+        else {
+            var prize = Prizes()
+            prize.prizeName = prizeName.text!
+            prize.prizeDescription = prizeDescription.text!
+            prize.prizePoints = Double(prizePoints.text!)!
+            prize.publisher = currentUser.name
+            prize.prizeImage = "prize1"
+            AddPrize(prize: prize)
+        }
+    }
+    @IBAction func savePrizeButton(_ sender: Any) {
+        savePrize()
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let nextViewController = storyboard.instantiateViewController(withIdentifier: "myPrizes") as! MyPrizesViewController
+        self.present(nextViewController, animated:true, completion:nil)
         
-        AddPrize(prize: prize)
+        NotificationCenter.default.post(name: Notification.Name("PrizeAdded"), object: nil)
+        
     }
 }

@@ -18,6 +18,8 @@ class EditEventViewController: ViewController {
     
     @IBOutlet weak var eventDate: UIDatePicker!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,17 +32,62 @@ class EditEventViewController: ViewController {
         eventPoints.text = String(currentEvent.eventPoints)
     }
     
+    @IBAction func saveEventButton(_ sender: Any) {
+        
+        if (!eventPoints.text!.isDouble) {
+            ShowAlert(Title: "Error", Message: "Please put in a valid number", ViewController: self, ButtonMessage: "Ok")
+        }
+        else if (eventName.text! == "") {
+            ShowAlert(Title: "Error", Message: "Name cannot be blank", ViewController: self, ButtonMessage: "Ok")
+        }
+        else if (eventDescription.text! == "") {
+            ShowAlert(Title: "Error", Message: "Description cannot be blank", ViewController: self, ButtonMessage: "Ok")
+        }
+        else {
+            var index = 0
+            index = GetEventIndex(event: currentEvent, list: eventList)!
+            let element = eventList.remove(at: index)
+            var newEvent = Event()
+            newEvent.eventName = eventName.text!
+            newEvent.eventDescription = eventDescription.text!
+            newEvent.eventPoints = Double(eventPoints.text!)!
+            newEvent.eventImage = element.eventImage
+            newEvent.eventID = element.eventID
+            newEvent.publisher = element.publisher
+            
+            eventList.append(newEvent)
+            
+            
+            //index = GetEventIndex(event: currentEvent, list: currentUser.userEvents)!
+            
+            addToAccounts(event: newEvent)
+            
+            SaveChanges()
+            
+            /*let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let nextViewController = storyboard.instantiateViewController(withIdentifier: "myEvents") as! MyEventsViewController
+            self.present(nextViewController, animated:true, completion:nil)
+            
+            NotificationCenter.default.post(name: Notification.Name("EventChanged"), object: nil)*/
+        }
+        
+        
+        
+        
+    }
+    
     @IBAction func DeleteEventButton(_ sender: Any) {
         var index = 0
         index = GetEventIndex(event: currentEvent, list: eventList)!
         
         eventList.remove(at: index)
         
-        index = GetEventIndex(event: currentEvent, list: currentUser.userEvents)!
+        //index = GetEventIndex(event: currentEvent, list: currentUser.userEvents)!
         
         //TODO: go through every other account and remove event
         removeEventFromAccounts(event: currentEvent)
         
+        SaveChanges()
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let nextViewController = storyboard.instantiateViewController(withIdentifier: "myEvents") as! MyEventsViewController
         self.present(nextViewController, animated:true, completion:nil)
@@ -67,4 +114,24 @@ class EditEventViewController: ViewController {
         }
     }
     
+    
+    func addToAccounts(event: Event) {
+        for account in accounts {
+            var found = false
+            var index = 0
+            for events in account.userEvents {
+                if (events.eventName == event.eventName) {
+                    found = true
+                }
+                else if (found == false){
+                    index += 1
+                }
+            }
+            if (found) {
+                account.userEvents.remove(at: index)
+                account.userEvents.append(event)
+            }
+            
+        }
+    }
 }

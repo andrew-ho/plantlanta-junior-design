@@ -39,10 +39,10 @@ class OrganizationViewController: ViewController {
                     newData.append(account.convertUser())
                 }
                 
-                try JSONSerialization.save(jsonObject: newData, toFilename: "users4.txt")
+                try JSONSerialization.save(jsonObject: newData, toFilename: "users6.txt")
             }
             catch {
-                print("org messed up")
+                print("org me/Users/administrator/Desktop/plantlanta-junior-design/test_signin/OrganizationViewController.swiftssed up")
             }
         }
     }

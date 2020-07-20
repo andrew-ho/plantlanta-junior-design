@@ -60,7 +60,7 @@ func InsertEventToUser(email: String, event: Event) {
     }
     print(JSONSerialization.isValidJSONObject(newData))
     do {
-        try JSONSerialization.save(jsonObject: newData, toFilename: "users4.txt")
+        try JSONSerialization.save(jsonObject: newData, toFilename: "users6.txt")
     } catch {
         print("inserting events did not work or file does not exist yet")
     }
@@ -77,7 +77,7 @@ func InsertPrizeToUser(email: String, prize: Prizes) {
         newData.append(account.convertUser())
     }
     do {
-        try JSONSerialization.save(jsonObject: newData, toFilename: "users4.txt")
+        try JSONSerialization.save(jsonObject: newData, toFilename: "users6.txt")
     } catch {
         print("inserting prizes did not work or file does not exist yet")
     }
@@ -85,19 +85,20 @@ func InsertPrizeToUser(email: String, prize: Prizes) {
 
 func AddEvent(event: Event) {
     eventList.append(event)
-    var newEvents = [[String: Any]]()
-    for ev in eventList {
-        newEvents.append(ev.convertToDic())
-    }
-    do {
-        try JSONSerialization.save(jsonObject: newEvents, toFilename: "events.txt")
-    }
-    catch {
-        print("something went wrong with saving events to text or file does not exist yet")
-    }
+        var newEvents = [[String: Any]]()
+        for ev in eventList {
+            newEvents.append(ev.convertToDic())
+        }
+        do {
+            try JSONSerialization.save(jsonObject: newEvents, toFilename: "events2.txt")
+        }
+        catch {
+            print("something went wrong with saving events to text or file does not exist yet")
+        }
 }
 
 func AddPrize(prize: Prizes) {
+    prizeList.append(prize)
     var newPrizes = [[String: Any]]()
     for stuff in prizeList {
         newPrizes.append(stuff.convertToDic())
@@ -113,4 +114,28 @@ func AddPrize(prize: Prizes) {
 func ConvertToAccount(User: [String: Any]) -> Account {
     let newAccount = Account(email: User["email"] as! String, password: User["password"] as! String, name: User["name"] as! String, accountType: User["accountType"] as! String, userEvents: User["userEvents"] as! [Event], userPrizes: User["userPrizes"] as! [Prizes], userPoints: User["userPoints"] as! Double)
     return newAccount
+}
+
+func SaveChanges() {
+    var newData = [[String: Any]]()
+    
+    for account in accounts {
+        newData.append(account.convertUser())
+    }
+    var newEvents = [[String: Any]]()
+    var newPrizes = [[String: Any]]()
+    for stuff in prizeList {
+        newPrizes.append(stuff.convertToDic())
+    }
+    for stuff in eventList {
+        newEvents.append(stuff.convertToDic())
+    }
+    do {
+        try JSONSerialization.save(jsonObject: newPrizes, toFilename: "prizes.txt")
+        try JSONSerialization.save(jsonObject: newEvents, toFilename: "events2.txt")
+        try JSONSerialization.save(jsonObject: newData, toFilename: "users6.txt")
+    }
+    catch {
+        print("something went wrong with saving prizes/events or file does not exist yet")
+    }
 }

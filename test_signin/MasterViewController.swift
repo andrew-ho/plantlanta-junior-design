@@ -307,3 +307,26 @@ func convertIntoJSONString(arrayObject: [Any]) -> String? {
         }
         return nil
     }
+
+func getEvents() -> [Event] {
+    var ev = [Event]()
+    for stuff in eventFile {
+        var event = Event()
+        event.eventDescription = stuff["eventDescription"] as! String
+        event.eventPoints = stuff["eventPoints"] as! Double
+        event.eventImage = stuff["eventImage"] as! String
+        event.eventName = stuff["eventName"] as! String
+        event.eventID = stuff["eventID"] as! Double
+        event.publisher = stuff["publisher"] as! String
+        
+        ev.append(event)
+    }
+    return ev
+    
+}
+
+extension String {
+    var isDouble: Bool {
+        return Double(self) != nil
+    }
+}

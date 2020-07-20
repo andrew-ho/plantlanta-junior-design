@@ -19,7 +19,7 @@ class MyPrizesViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if (currentUser.accountType == "Volunteer") {
+        if (currentUser.accountType == "Volunteer" || currentUser.accountType == "Organization") {
             addPrizeButton.isHidden = true
         }
         
@@ -54,7 +54,21 @@ class MyPrizesViewController: ViewController {
     didSelectItemAt indexPath: IndexPath) {
         currentPrize = currentUser.userPrizes[indexPath.row]
         index = indexPath.row
-        NotificationCenter.default.post(name: Notification.Name("ChangePrizeLabels"), object: nil)
+        
+        if (currentPrize.publisher == currentUser.name) {
+            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let nextViewController = storyboard.instantiateViewController(withIdentifier: "editPrize") as! EditPrizeViewController
+            self.present(nextViewController, animated:true, completion:nil)
+            
+            NotificationCenter.default.post(name: Notification.Name("ChangePrizeLabels"), object: nil)
+        }
+        else {
+            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let nextViewController = storyboard.instantiateViewController(withIdentifier: "individualPrize") as! IndividualPrizeController
+            self.present(nextViewController, animated:true, completion:nil)
+            
+            NotificationCenter.default.post(name: Notification.Name("UpdateLabel"), object: nil)
+        }
     }
     
 }

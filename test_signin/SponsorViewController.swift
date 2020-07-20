@@ -39,7 +39,7 @@ class SponsorViewController: ViewController {
                     newData.append(account.convertUser())
                 }
                 
-                try JSONSerialization.save(jsonObject: newData, toFilename: "users4.txt")
+                try JSONSerialization.save(jsonObject: newData, toFilename: "users6.txt")
             }
             catch {
                 print("org messed up")

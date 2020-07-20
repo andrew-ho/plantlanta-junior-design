@@ -13,7 +13,7 @@
         <!--Start-->
         <scene sceneID="n4k-Lj-2GJ">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="u0u-Po-IzN" userLabel="Start" customClass="ViewController" customModule="test_signin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="u0u-Po-IzN" userLabel="Start" customClass="StartViewController" customModule="test_signin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bIX-Rc-00n">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -130,10 +130,10 @@
             </objects>
             <point key="canvasLocation" x="-90" y="125"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Event View Controller-->
         <scene sceneID="xTU-33-KOC">
             <objects>
-                <viewController id="Nsj-aO-3J8" sceneMemberID="viewController">
+                <viewController id="Nsj-aO-3J8" customClass="AddEventViewController" customModule="test_signin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="azf-aR-r1L">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -215,6 +215,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Save"/>
                                 <connections>
+                                    <action selector="saveEventButton:" destination="Nsj-aO-3J8" eventType="touchUpInside" id="rEp-aM-40F"/>
                                     <segue destination="ESS-ma-Rj6" kind="show" id="IDG-JF-tSJ"/>
                                 </connections>
                             </button>
@@ -232,6 +233,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="dfC-iB-SFD"/>
+                    <connections>
+                        <outlet property="eventDate" destination="g3H-tL-PPS" id="j6e-LE-i4p"/>
+                        <outlet property="eventDescription" destination="85o-kZ-2ia" id="3eo-EM-Hb3"/>
+                        <outlet property="eventName" destination="a0K-oK-HEB" id="rX7-WH-oTU"/>
+                        <outlet property="eventPoints" destination="4vv-xY-rLx" id="Co4-9y-Swk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="287-UQ-Zd6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -349,7 +356,7 @@
         <!--My Prizes View Controller-->
         <scene sceneID="bRq-xP-HhH">
             <objects>
-                <viewController id="6Js-rD-osK" customClass="MyPrizesViewController" customModule="test_signin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="myPrizes" id="6Js-rD-osK" customClass="MyPrizesViewController" customModule="test_signin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UzP-QH-iZP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1221,7 +1228,7 @@
         <!--Individual Event Controller-->
         <scene sceneID="XVM-jH-bcP">
             <objects>
-                <viewController id="naT-tw-zoU" customClass="IndividualEventController" customModule="test_signin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="individualEvent" id="naT-tw-zoU" customClass="IndividualEventController" customModule="test_signin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AfF-YZ-HpH">
                         <rect key="frame" x="0.0" y="0.0" width="374" height="585"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1456,7 +1463,7 @@
         <!--Individual Prize Controller-->
         <scene sceneID="mZh-Hd-JKW">
             <objects>
-                <viewController id="IO9-Xy-uyA" customClass="IndividualPrizeController" customModule="test_signin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="individualPrize" id="IO9-Xy-uyA" customClass="IndividualPrizeController" customModule="test_signin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3F7-hh-gM0">
                         <rect key="frame" x="0.0" y="0.0" width="374" height="585"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1595,7 +1602,7 @@
         <!--Edit Event View Controller-->
         <scene sceneID="3gG-Oz-dni">
             <objects>
-                <viewController id="6zP-A0-3Mx" customClass="EditEventViewController" customModule="test_signin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="editEvent" id="6zP-A0-3Mx" customClass="EditEventViewController" customModule="test_signin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="khl-Lv-7fe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1698,6 +1705,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Save"/>
                                 <connections>
+                                    <action selector="saveEventButton:" destination="6zP-A0-3Mx" eventType="touchUpInside" id="MTS-mJ-bG9"/>
                                     <segue destination="ESS-ma-Rj6" kind="show" id="ETc-3y-O3h"/>
                                 </connections>
                             </button>
@@ -1739,7 +1747,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PV3-lY-pPv">
-                                <rect key="frame" x="150" y="752" width="114" height="60"/>
+                                <rect key="frame" x="150" y="782" width="114" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <state key="normal" title="Return"/>
@@ -1814,6 +1822,15 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pdi-DN-Zn4">
+                                <rect key="frame" x="150" y="752" width="114" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="39"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveEventButton:" destination="zsd-zq-6tS" eventType="touchUpInside" id="wXq-hZ-SoV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vFW-vb-2eC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1827,7 +1844,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Ky-dt-u2J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1035" y="-808"/>
+            <point key="canvasLocation" x="-1036.231884057971" y="-808.25892857142856"/>
         </scene>
         <!--Add Prize View Controller-->
         <scene sceneID="uuX-AK-lnx">
@@ -1907,11 +1924,12 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HIt-1R-2FS">
-                                <rect key="frame" x="175" y="440" width="64" height="48"/>
+                                <rect key="frame" x="175" y="663" width="64" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Save"/>
                                 <connections>
+                                    <action selector="savePrizeButton:" destination="SzF-FZ-vFg" eventType="touchUpInside" id="s2S-48-ldH"/>
                                     <segue destination="6Js-rD-osK" kind="show" id="ghL-dA-1W2"/>
                                 </connections>
                             </button>
@@ -1933,7 +1951,7 @@
         <!--Edit Prize View Controller-->
         <scene sceneID="XnV-6o-Sw4">
             <objects>
-                <viewController id="7Gk-KQ-k4r" customClass="EditPrizeViewController" customModule="test_signin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="editPrize" id="7Gk-KQ-k4r" customClass="EditPrizeViewController" customModule="test_signin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rTW-7L-xDc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2020,11 +2038,12 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5hH-Aw-ZfW">
-                                <rect key="frame" x="175" y="451" width="64" height="48"/>
+                                <rect key="frame" x="175" y="695" width="64" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Save"/>
                                 <connections>
+                                    <action selector="savePrizeButton:" destination="7Gk-KQ-k4r" eventType="touchUpInside" id="VKT-q0-je4"/>
                                     <segue destination="6Js-rD-osK" kind="show" id="oe7-0q-24G"/>
                                 </connections>
                             </button>
@@ -2044,15 +2063,15 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="QPb-kM-cSd"/>
+        <segue reference="Dpu-up-gBC"/>
         <segue reference="wrw-yz-YDg"/>
-        <segue reference="XLC-7B-cn3"/>
+        <segue reference="fzX-LC-dDT"/>
         <segue reference="bHt-2b-Gr1"/>
-        <segue reference="dYU-0E-EPN"/>
-        <segue reference="BKz-yN-M3c"/>
-        <segue reference="xnu-TQ-2gu"/>
-        <segue reference="ruA-w9-IhF"/>
-        <segue reference="o4m-I7-HD8"/>
+        <segue reference="JPJ-Bp-goC"/>
+        <segue reference="oe7-0q-24G"/>
+        <segue reference="ETc-3y-O3h"/>
+        <segue reference="ine-V2-c10"/>
+        <segue reference="c7f-Qw-cqe"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">

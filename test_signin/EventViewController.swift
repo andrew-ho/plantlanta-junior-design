@@ -15,18 +15,20 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
         
         EventCollection.delegate = self
         EventCollection.dataSource = self
-        
         do {
-            eventFile = try JSONSerialization.loadJSON(withFilename: "events.txt") as! [[String : Any]]
+            eventFile = try JSONSerialization.loadJSON(withFilename: "events2.txt") as! [[String : Any]]
         }
         catch {
             print("Something went wrong or file does not exist")
         }
         
+        
         eventList = getEvents()
         
         //Receives notification of a successful event sign up
         NotificationCenter.default.addObserver(self, selector: #selector(ShowEventAlert), name: Notification.Name("EventSignInSuccessAlert"), object: nil)
+        
+        print(eventList.count)
     }
     
     //Shows an alert that the user has sucessfully signed up
@@ -63,23 +65,6 @@ class EventViewController: UIViewController, UICollectionViewDataSource, UIColle
         NotificationCenter.default.post(name: Notification.Name("UpdateLabel"), object: nil)
     }
     
-    
-    func getEvents() -> [Event] {
-        var ev = [Event]()
-        for stuff in eventFile {
-            var event = Event()
-            event.eventDescription = stuff["eventDescription"] as! String
-            event.eventPoints = stuff["eventPoints"] as! Double
-            event.eventImage = stuff["eventImage"] as! String
-            event.eventName = stuff["eventName"] as! String
-            event.eventID = stuff["eventID"] as! Double
-            event.publisher = stuff["publisher"] as! String
-            
-            ev.append(event)
-        }
-        return ev
-        
-    }
     
 }
 
