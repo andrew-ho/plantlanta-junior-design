@@ -64,6 +64,7 @@ BUILD/ RUNNING THE APPLICATION
  
  
 TROUBLESHOOTING
+
  If the application does not run ensure that you are using the most updated version of Xcode, Swift 4.0 or later, and are on a Mac running iOS 8 or later.
 
 License: MIT License
