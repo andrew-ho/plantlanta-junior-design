@@ -17,6 +17,9 @@ class IndividualPrizeController: ViewController {
     
     @IBOutlet weak var PrizeImage: UIImageView!
     
+    @IBOutlet weak var prizeCost: UILabel!
+    
+    @IBOutlet weak var myPoints: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,10 +28,11 @@ class IndividualPrizeController: ViewController {
     }
     //changes label to the prize name
     @objc func ChangePrizeLabel() {
+        prizeCost.text! = String(currentPrize.prizePoints)
         PrizeName.text = currentPrize.prizeName
         PrizeText.text = currentPrize.prizeDescription
         PrizeImage.image = UIImage(named: currentPrize.prizeImage)
-        
+        myPoints.text! = String(currentUser.userPoints)
     }
     
     
