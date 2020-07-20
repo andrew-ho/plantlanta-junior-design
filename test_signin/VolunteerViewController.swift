@@ -31,18 +31,9 @@ class VolunteerViewController: ViewController {
     @IBAction func RegisterVolunteer(_ sender: UIButton) {
         let reg = CheckRegistration(name: volunteerName.text!, password: volunteerPassword.text!, email: volunteerEmail.text!, view: self)
         if (!reg) {
-            //Register(name: volunteerName.text!, email: volunteerEmail.text!, password: volunteerPassword.text!, accountType: "Volunteer", userEvents: userEvents, userPrizes: userPrizes, userPoints: 0)
             let newAccount = Account(email: volunteerEmail.text!, password: volunteerPassword.text!, name: volunteerName.text!, accountType: "Volunteer", userEvents: userEvents, userPrizes: userPrizes, userPoints: 0)
-            //let a = Users(account: newAccount)
-            
-            //let dic = newAccount.convUserToDic()
-            
-            let dic = newAccount.convertUser()
-            //let valid = JSONSerialization.isValidJSONObject(dic)
-            //print(valid)
+
             do {
-                
-                //data["Users"]?.append(dic)
                 accounts.append(newAccount)
                 
                 var newData = [[String: Any]]()
@@ -50,12 +41,6 @@ class VolunteerViewController: ViewController {
                 for account in accounts {
                     newData.append(account.convertUser())
                 }
-                
-                //data["Users"]?.append(newAccount.convertUser())
-                //var r = accJSON as! [String: [String: Any]]
-                //(r["Users"]? as AnyObject).append(dic)
-                //print(r)
-                //try JSONSerialization.save(jsonObject: dic, toFilename: "results.txt")
                 
                 try JSONSerialization.save(jsonObject: newData, toFilename: "users6.txt")
             }
